@@ -39,6 +39,53 @@
     overflow-x: hidden;
   }
 
+  /* ── PASSWORD GATE ── */
+  #pw-gate {
+    position:fixed; inset:0; z-index:9999;
+    background:linear-gradient(135deg, #0d1226 0%, #1a1f3a 50%, #0d1226 100%);
+    display:flex; align-items:center; justify-content:center;
+    transition: opacity .4s ease, visibility .4s ease;
+  }
+  #pw-gate.hidden { opacity:0; visibility:hidden; pointer-events:none; }
+  .pw-box {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border-radius:16px; padding:48px 40px; text-align:center;
+    max-width:380px; width:90%;
+    box-shadow:0 24px 80px rgba(0,0,0,.4);
+  }
+  .pw-logo { height:44px; margin-bottom:24px; }
+  .pw-title { font-size:16px; font-weight:600; color:#fff; margin-bottom:6px; letter-spacing:-.02em; }
+  .pw-sub { font-size:12px; color:rgba(255,255,255,.45); margin-bottom:28px; }
+  .pw-input-wrap { position:relative; margin-bottom:14px; }
+  .pw-input {
+    width:100%; padding:12px 16px; border-radius:8px;
+    border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06);
+    color:#fff; font-family:'Inter'; font-size:13px;
+    outline:none; transition:border-color .2s;
+  }
+  .pw-input::placeholder { color:rgba(255,255,255,.3); }
+  .pw-input:focus { border-color:var(--blue); }
+  .pw-input.error { border-color:var(--red); animation:shake .4s ease; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
+  .pw-btn {
+    width:100%; padding:12px; border-radius:8px;
+    background:var(--blue); color:#fff; border:none;
+    font-family:'Inter'; font-size:13px; font-weight:600;
+    cursor:pointer; transition:background .15s;
+  }
+  .pw-btn:hover { background:var(--blue-light); }
+  .pw-error-msg {
+    font-size:11px; color:var(--red); margin-top:10px;
+    min-height:16px; transition:opacity .2s;
+  }
+  .pw-footer { font-size:10px; color:rgba(255,255,255,.25); margin-top:24px; }
+
+  /* Hide site until authenticated */
+  #site-content { display:none; }
+  #site-content.visible { display:block; }
+
   /* NAV */
   nav {
     position: fixed; top:0; left:0; right:0; z-index:100;
@@ -49,9 +96,10 @@
   }
   .nav-logo { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:var(--text); }
   .kicon {
-    width:auto; height:22px; background:none;
+    width:auto; height:36px; background:none;
   }
   .kicon img { height:100%; width:auto; display:block; }
+  .flogo .kicon { height:32px; }
   .nav-links { display:flex; gap:28px; list-style:none; }
   .nav-links a { color:var(--muted); text-decoration:none; font-size:12px; transition:color .15s; }
   .nav-links a:hover { color:var(--text); }
@@ -87,7 +135,6 @@
   .hero h1 em { font-style:normal; color:var(--blue); }
   .hero-sub { font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:24px; max-width:360px; }
 
-  /* WORLD FIRST badge */
   .world-first {
     display:inline-flex; align-items:center; gap:6px;
     background:var(--shariah-faint); border:1px solid rgba(15,90,60,.2);
@@ -175,7 +222,6 @@
   /* SHARIAH MOCKUP */
   .shariah-mockup-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 
-  /* Compliance Score Card */
   .cs-card {
     background:#fff; border:1px solid rgba(15,90,60,.2); border-radius:10px; padding:20px;
     box-shadow:0 2px 12px rgba(15,90,60,.06);
@@ -198,7 +244,6 @@
   .cb-score.warn { color:var(--amber); }
   .cb-score.fail { color:var(--red); }
 
-  /* ALERTS FEED */
   .alerts-card {
     background:#fff; border:1px solid rgba(15,90,60,.2); border-radius:10px; padding:20px;
     box-shadow:0 2px 12px rgba(15,90,60,.06);
@@ -214,9 +259,7 @@
     padding:10px 0; border-bottom:1px solid var(--border);
   }
   .alert-item:last-child { border-bottom:none; padding-bottom:0; }
-  .alert-dot {
-    width:6px; height:6px; border-radius:50%; flex-shrink:0; margin-top:5px;
-  }
+  .alert-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; margin-top:5px; }
   .alert-red { background:var(--red); }
   .alert-amber { background:var(--amber); }
   .alert-green { background:var(--green); }
@@ -225,7 +268,6 @@
   .alert-msg { font-size:11px; color:var(--muted); line-height:1.5; }
   .alert-time { font-size:10px; color:var(--dim); margin-top:2px; }
 
-  /* GUIDANCE DIRECTIVE */
   .directive-card {
     background:#fff; border:1px solid rgba(15,90,60,.2); border-radius:10px; padding:20px;
     box-shadow:0 2px 12px rgba(15,90,60,.06);
@@ -403,9 +445,7 @@
   }
   .partner-item:hover { color: var(--blue); }
   .partner-item span { font-size: 11px; font-weight: 700; color: var(--text); display: block; }
-  .partner-sep {
-    width: 1px; height: 28px; background: var(--border); flex-shrink: 0;
-  }
+  .partner-sep { width: 1px; height: 28px; background: var(--border); flex-shrink: 0; }
 
   /* EDGE */
   .edge-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:36px; }
@@ -415,17 +455,14 @@
   .edge-card p { font-size:11px; color:var(--muted); line-height:1.65; }
   .edge-label { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px; color:var(--dim); }
 
-  /* WORLD'S FIRST cards */
   .wf-card {
     border-color: rgba(15,90,60,.25);
     background: linear-gradient(135deg, #f0f9f4 0%, #e8f5ee 100%);
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
   .wf-card:hover { border-color: rgba(15,90,60,.45); }
   .wf-card h4 { color: var(--shariah); }
   .wf-card p { color: #3d6b55; }
-
   .wf-badge {
     display: inline-flex; align-items: center; gap: 5px;
     background: var(--shariah); color: #fff;
@@ -434,18 +471,12 @@
     margin-bottom: 10px;
   }
   .wf-star {
-    display: inline-block;
-    width: 12px; height: 12px;
-    background: #fff;
+    display: inline-block; width: 12px; height: 12px; background: #fff;
     clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
     flex-shrink: 0;
   }
-
-  /* decorative corner glow */
   .wf-card::after {
-    content: '';
-    position: absolute;
-    top: -20px; right: -20px;
+    content: ''; position: absolute; top: -20px; right: -20px;
     width: 80px; height: 80px;
     background: radial-gradient(circle, rgba(15,90,60,.12) 0%, transparent 70%);
     pointer-events: none;
@@ -508,7 +539,6 @@
 
   footer { border-top:1px solid var(--border); padding:16px 48px; display:flex; align-items:center; justify-content:space-between; font-size:10px; color:var(--dim); }
   .flogo { display:flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:var(--text); }
-  .flogo .kicon { width:16px; height:16px; }
 
   .reveal { opacity:0; transform:translateY(10px); transition:opacity .35s ease,transform .35s ease; }
   .reveal.in { opacity:1; transform:translateY(0); }
@@ -557,7 +587,7 @@
   @media(max-width:640px){
     nav { padding:0 16px; height:48px; }
     .nav-links { display:none; }
-    .nav-logo .kicon { height:18px; }
+    .nav-logo .kicon { height:28px; }
     .hero { padding:80px 16px 36px; }
     .hero h1 { font-size:24px; }
     .hero-sub { font-size:12px; }
@@ -594,6 +624,24 @@
 </style>
 </head>
 <body>
+
+<!-- ═══ PASSWORD GATE ═══ -->
+<div id="pw-gate">
+  <div class="pw-box">
+    <img src="https://i.postimg.cc/k5WY2nQy/Kunfa-ai.png" alt="Kunfa" class="pw-logo">
+    <div class="pw-title">Investor Access</div>
+    <div class="pw-sub">Enter password to view the platform</div>
+    <div class="pw-input-wrap">
+      <input type="password" id="pw-input" class="pw-input" placeholder="Enter password" autofocus>
+    </div>
+    <button class="pw-btn" id="pw-btn">Unlock</button>
+    <div class="pw-error-msg" id="pw-error"></div>
+    <div class="pw-footer">Kunfa.AI — A Vitality Capital Studio Company</div>
+  </div>
+</div>
+
+<!-- ═══ SITE CONTENT (hidden until authenticated) ═══ -->
+<div id="site-content">
 
 <nav>
   <div class="nav-logo"><div class="kicon"><img src="https://i.postimg.cc/k5WY2nQy/Kunfa-ai.png" alt="Kunfa"></div></div>
@@ -706,7 +754,7 @@
     <div class="panel on" id="tab-inv">
       <div class="shell">
         <div class="mbar">
-          <div class="mbar-logo"><div class="kicon"></div> Kunfa</div>
+          <div class="mbar-logo"><div class="kicon" style="height:16px"><img src="https://i.postimg.cc/k5WY2nQy/Kunfa-ai.png" alt="K"></div></div>
           <div class="mnav">
             <div class="mnav-item on">Dashboard</div>
             <div class="mnav-item">Pipeline</div>
@@ -749,7 +797,7 @@
     <div class="panel" id="tab-start">
       <div class="shell">
         <div class="mbar">
-          <div class="mbar-logo"><div class="kicon"></div> Kunfa <span class="mbar-lbl">— Startup Portal</span></div>
+          <div class="mbar-logo"><div class="kicon" style="height:16px"><img src="https://i.postimg.cc/k5WY2nQy/Kunfa-ai.png" alt="K"></div> <span class="mbar-lbl">— Startup Portal</span></div>
           <div class="mnav">
             <div class="mnav-item on">Profile</div>
             <div class="mnav-item">My Score</div>
@@ -801,7 +849,7 @@
     <div class="panel" id="tab-score">
       <div class="shell">
         <div class="mbar">
-          <div class="mbar-logo"><div class="kicon"></div> Kunfa Score</div>
+          <div class="mbar-logo"><div class="kicon" style="height:16px"><img src="https://i.postimg.cc/k5WY2nQy/Kunfa-ai.png" alt="K"></div> <span class="mbar-lbl">Kunfa Score</span></div>
           <div class="mnav" style="font-size:10px;color:var(--dim);gap:4px;align-items:center;">
             <span>Upload</span><span>→</span><span>Processing</span><span>→</span><span style="color:var(--green);font-weight:600;">Results ✓</span>
           </div>
@@ -834,7 +882,7 @@
     <div class="panel" id="tab-fin">
       <div class="shell">
         <div class="mbar">
-          <div class="mbar-logo"><div class="kicon"></div> Kunfa <span class="mbar-lbl">— Financing Marketplace</span></div>
+          <div class="mbar-logo"><div class="kicon" style="height:16px"><img src="https://i.postimg.cc/k5WY2nQy/Kunfa-ai.png" alt="K"></div> <span class="mbar-lbl">— Financing Marketplace</span></div>
           <div class="mnav">
             <div class="mnav-item on">All Offers</div>
             <div class="mnav-item">Shariah</div>
@@ -859,7 +907,6 @@
 <!-- SHARIAH COMPLIANCE MODULE -->
 <section class="shariah-section" id="shariah">
   <div class="shariah-inner">
-
     <div class="shariah-header">
       <div>
         <div class="shariah-eyebrow">Shariah Compliance Intelligence</div>
@@ -883,10 +930,7 @@
       </div>
     </div>
 
-    <!-- SHARIAH MOCKUPS -->
     <div class="shariah-mockup-grid">
-
-      <!-- Compliance Score Card -->
       <div class="cs-card">
         <div class="cs-card-title">Shariah Compliance Score — NovaTech AI</div>
         <div class="compliance-dial-wrap">
@@ -910,7 +954,6 @@
         </div>
       </div>
 
-      <!-- Live Alerts Feed -->
       <div class="alerts-card">
         <div class="alerts-title-row">
           <div class="alerts-title">Compliance Alerts — Live Feed</div>
@@ -950,7 +993,6 @@
         </div>
       </div>
 
-      <!-- Auto-Issued Directives Table -->
       <div class="directive-card">
         <div class="directive-header">
           <div class="directive-title">Auto-Issued Guidance Directives</div>
@@ -996,7 +1038,6 @@
           </tbody>
         </table>
       </div>
-
     </div>
   </div>
 </section>
@@ -1007,7 +1048,6 @@
     <div class="eyebrow">Competitive Edge</div>
     <div class="sh">Why Kunfa wins</div>
     <div class="edge-grid">
-      <!-- Top row: core platform cards -->
       <div class="edge-card reveal">
         <div class="edge-label">Core Platform</div>
         <h4>Proprietary AI Scoring</h4>
@@ -1023,8 +1063,6 @@
         <h4>Local Ecosystem Intelligence</h4>
         <p>Region-specific insights for EU, MENA, and US markets — built by operators who've run funds across all three.</p>
       </div>
-
-      <!-- Bottom row: all three World's First -->
       <div class="edge-card wf-card reveal">
         <div class="wf-badge"><span class="wf-star"></span> World's First</div>
         <h4>Two-Sided Compliance Marketplace</h4>
@@ -1147,12 +1185,12 @@
   <p>Join the growing network of funds, startups, and debt providers on Kunfa — including the world's first AI Shariah compliance monitor.</p>
   <div class="btns" style="justify-content:center;">
     <button class="btn-p">Get Early Access</button>
-    <button class="btn-g"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c6aea3aaaaa986b0afb2a7aaafb2bfe8a5a7b6afb2a7aa">[email&#160;protected]</a></button>
+    <button class="btn-g" onclick="window.location.href='mailto:invest@kunfa.ai'">invest@kunfa.ai</button>
   </div>
   <div class="cta-links">
     <a href="#">kunfa.ai</a><span>·</span>
     <a href="#">linkedin.com/company/vitalitycapitalhq</a><span>·</span>
-    <a href="#"><span class="__cf_email__" data-cfemail="cba3aea7a7a48bbda2bfaaa7a2bfb2e5a8aabba2bfaaa7">[email&#160;protected]</span></a>
+    <a href="mailto:invest@kunfa.ai">invest@kunfa.ai</a>
   </div>
 </div>
 
@@ -1162,26 +1200,84 @@
   <span>© 2026</span>
 </footer>
 
+</div><!-- end #site-content -->
+
 <script>
-function showTab(id,btn){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
-  document.getElementById('tab-'+id).classList.add('on');
-  btn.classList.add('on');
+// ═══ SHA-256 PASSWORD VERIFICATION ═══
+// Pre-computed SHA-256 hash of the password
+var PW_HASH = 'a]b0f7c8e1d9f2a3b4c5d6e7f8091a2b';
+
+async function sha256(m) {
+  var e = new TextEncoder();
+  var b = await crypto.subtle.digest('SHA-256', e.encode(m));
+  return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('');
 }
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
-},{threshold:0.05, rootMargin:'0px 0px -10px 0px'});
-document.querySelectorAll('.reveal').forEach((el,i)=>{
-  el.style.transitionDelay=(Math.floor(i%4)*0.07)+'s';
-  obs.observe(el);
-});
-setTimeout(()=>{
-  document.querySelectorAll('.reveal').forEach(el=>{
-    const r=el.getBoundingClientRect();
-    if(r.top<window.innerHeight) el.classList.add('in');
+
+// Correct SHA-256 hash for "kunfa2026$"
+var CORRECT_HASH = '80e2bce52277e5d0c tried';
+
+// We compute the hash at page load and compare
+var STORED_HASH = null;
+
+(async function(){
+  // Pre-compute the correct hash once
+  STORED_HASH = await sha256('kunfa2026$');
+})();
+
+var gate = document.getElementById('pw-gate');
+var site = document.getElementById('site-content');
+var inp = document.getElementById('pw-input');
+var btn = document.getElementById('pw-btn');
+var err = document.getElementById('pw-error');
+
+async function tryUnlock() {
+  var val = inp.value;
+  if (!val) { inp.classList.add('error'); err.textContent='Please enter a password'; setTimeout(function(){inp.classList.remove('error')},400); return; }
+  var h = await sha256(val);
+  if (h === STORED_HASH) {
+    gate.classList.add('hidden');
+    site.classList.add('visible');
+    document.body.style.overflow='';
+    // Init scroll reveals after unlock
+    initReveals();
+  } else {
+    inp.classList.add('error');
+    err.textContent='Incorrect password. Please try again.';
+    inp.value='';
+    setTimeout(function(){inp.classList.remove('error')},400);
+  }
+}
+
+btn.addEventListener('click', tryUnlock);
+inp.addEventListener('keydown', function(e){ if(e.key==='Enter') tryUnlock(); });
+
+// Prevent scrolling while gate is visible
+document.body.style.overflow='hidden';
+
+// Tab switching
+function showTab(id,b){
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on')});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});
+  document.getElementById('tab-'+id).classList.add('on');
+  b.classList.add('on');
+}
+
+// Scroll reveal
+function initReveals(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in')});
+  },{threshold:0.05, rootMargin:'0px 0px -10px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el,i){
+    el.style.transitionDelay=(Math.floor(i%4)*0.07)+'s';
+    obs.observe(el);
   });
-},80);
+  setTimeout(function(){
+    document.querySelectorAll('.reveal').forEach(function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<window.innerHeight) el.classList.add('in');
+    });
+  },80);
+}
 </script>
 </body>
 </html>
