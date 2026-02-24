@@ -544,6 +544,78 @@
   .reveal { opacity:0; transform:translateY(10px); transition:opacity .35s ease,transform .35s ease; }
   .reveal.in { opacity:1; transform:translateY(0); }
 
+  /* ── Utility Section ── */
+  .util-section {
+    background:linear-gradient(180deg,#f0f2ff 0%,#fff 100%);
+    border-top:2px solid rgba(24,71,245,.1);
+    border-bottom:2px solid rgba(24,71,245,.1);
+  }
+  .util-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+  .util-feature {
+    display:flex; align-items:flex-start; gap:12px;
+    background:var(--blue-faint); border:1px solid var(--border-b);
+    border-radius:8px; padding:14px 16px;
+  }
+  .util-icon {
+    width:32px; height:32px; border-radius:6px; background:var(--blue); color:#fff;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    font-size:14px; font-weight:700;
+  }
+  .util-feature h5 { font-size:12px; font-weight:600; color:var(--text); margin-bottom:3px; }
+  .util-feature p { font-size:11px; color:var(--muted); line-height:1.6; }
+  .flywheel-step {
+    display:flex; align-items:center; gap:10px; padding:12px;
+    border:1px solid; font-size:11px;
+  }
+  .flywheel-step .fw-emoji { font-size:18px; flex-shrink:0; }
+  .flywheel-step h5 { font-size:11px; font-weight:600; color:var(--text); margin-bottom:1px; }
+  .flywheel-step p { font-size:10px; color:var(--muted); }
+  .flywheel-step .fw-arrow { margin-left:auto; font-size:10px; font-weight:700; flex-shrink:0; }
+  .util-stats { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
+  .util-stat {
+    background:var(--bg2); border:1px solid var(--border); border-radius:6px;
+    padding:11px; text-align:center;
+  }
+  .util-stat-v { font-size:16px; font-weight:600; }
+  .util-stat-l { font-size:9px; color:var(--dim); text-transform:uppercase; letter-spacing:.04em; }
+  .acq-box {
+    background:var(--shariah); border-radius:8px; padding:14px 16px;
+    margin-top:16px; max-width:400px;
+  }
+  .acq-box-title { font-size:10px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-bottom:6px; }
+  .acq-box-text { font-size:12px; color:#fff; line-height:1.65; }
+  .scholar-board {
+    background:var(--shariah); border-radius:8px; padding:16px 18px; margin-top:6px;
+  }
+  .scholar-header { display:flex; align-items:center; gap:8px; margin-bottom:10px; flex-wrap:wrap; }
+  .scholar-title { font-size:10px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.6); }
+  .scholar-verified { background:rgba(255,255,255,.15); padding:2px 8px; border-radius:3px; font-size:9px; font-weight:600; color:#fff; letter-spacing:.04em; }
+  .scholar-card {
+    display:flex; align-items:center; gap:14px;
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
+    border-radius:7px; padding:12px 14px; margin-bottom:8px;
+  }
+  .scholar-avatar {
+    width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.12);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    font-size:14px; font-weight:600; color:#fff;
+  }
+  .scholar-name { font-size:12px; font-weight:600; color:#fff; margin-bottom:2px; }
+  .scholar-role { font-size:10px; color:rgba(255,255,255,.6); line-height:1.5; }
+  .scholar-note { font-size:10px; color:rgba(255,255,255,.5); line-height:1.6; }
+  .mockup-shell-header {
+    background:var(--bg2); padding:10px 16px; border-bottom:1px solid var(--border);
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px;
+  }
+  .engine-badge {
+    font-size:9px; font-weight:600; color:var(--blue); background:var(--blue-faint);
+    border:1px solid var(--border-b); padding:2px 8px; border-radius:100px;
+  }
+  .cta-banner {
+    background:var(--blue); border-radius:6px; padding:12px 14px;
+    color:#fff; font-size:11px; line-height:1.6;
+  }
+
   /* ── RESPONSIVE ── */
   @media(max-width:1024px){
     nav { padding:0 24px; }
@@ -583,6 +655,11 @@
     .partner-sep { display:none; }
     .cta { padding:48px 24px; }
     footer { padding:16px 24px; }
+    .util-grid { grid-template-columns:1fr; gap:36px; }
+    .util-section { padding:48px 24px; }
+    .util-stats { grid-template-columns:1fr 1fr 1fr; }
+    .acq-box { max-width:100%; }
+    .scholar-card { flex-wrap:wrap; }
   }
 
   @media(max-width:640px){
@@ -621,6 +698,16 @@
     .compliance-dial-wrap { flex-direction:column; align-items:center; }
     .stats-row { grid-template-columns:1fr; }
     .stat { border-right:none !important; }
+    .util-section { padding:36px 16px; }
+    .util-grid { grid-template-columns:1fr; gap:28px; }
+    .util-stats { grid-template-columns:1fr; }
+    .util-feature { flex-direction:column; gap:8px; }
+    .flywheel-step { flex-wrap:wrap; gap:8px; }
+    .flywheel-step .fw-arrow { margin-left:0; }
+    .scholar-card { flex-direction:column; text-align:center; gap:8px; }
+    .scholar-header { justify-content:center; }
+    .acq-box { max-width:100%; }
+    .alloc-lbl { min-width:120px; font-size:10px; }
   }
 </style>
 </head>
@@ -637,7 +724,7 @@
     </div>
     <button class="pw-btn" id="pw-btn">Unlock</button>
     <div class="pw-error-msg" id="pw-error"></div>
-    <!-- <div class="pw-footer">Kunfa.AI — A Vitality Capital Studio Company</div> -->
+    <div class="pw-footer"></div>
   </div>
 </div>
 
@@ -663,7 +750,7 @@
 <!-- HERO -->
 <div class="hero">
   <div>
-    <!-- <div class="hero-tag">A Vitality Capital Studio Company</div> -->
+    <div class="hero-tag">Venture Intelligence Platform</div>
     <h1>Venture Intelligence<br>for <em>Modern Investors</em></h1>
     <div class="world-first"><span class="wf-dot"></span> World's first AI-powered Shariah compliance monitoring for venture portfolios</div>
     <p class="hero-sub">Score. Track. Invest. The deal intelligence platform that transforms how venture funds source, evaluate, and manage opportunities — with built-in Shariah compliance screening, founder gamification, and real-time portfolio alerts.</p>
@@ -723,81 +810,79 @@
 </section>
 
 <!-- UTILITY & LIQUIDITY — FOUNDER GAMIFICATION -->
-<section class="section" style="background:linear-gradient(180deg,#f0f2ff 0%,#fff 100%);border-top:2px solid rgba(24,71,245,.1);border-bottom:2px solid rgba(24,71,245,.1);">
+<section class="section util-section">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
+    <div class="util-grid">
       <div>
         <div class="eyebrow">Utility & Liquidity</div>
         <div class="sh" style="font-size:22px;">Why founders <em style="font-style:normal;color:var(--blue)">love</em> Kunfa</div>
         <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:20px;max-width:400px;">Most platforms ask founders for data and give nothing back. Kunfa flips the model — every action on the platform earns reward points, unlocks services, and increases visibility to investors. The more founders engage, the more value they receive.</p>
 
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <div style="display:flex;align-items:flex-start;gap:12px;background:var(--blue-faint);border:1px solid var(--border-b);border-radius:8px;padding:14px 16px;">
-            <div style="width:32px;height:32px;border-radius:6px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:700;">🎯</div>
-            <div><div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:3px;">Incentivized Data Completeness</div><div style="font-size:11px;color:var(--muted);line-height:1.6;">Every profile field, document upload, and LinkedIn connection earns points. Complete profiles score higher and rank first in investor searches — creating a flywheel of quality data.</div></div>
+          <div class="util-feature">
+            <div class="util-icon">🎯</div>
+            <div><h5>Incentivized Data Completeness</h5><p>Every profile field, document upload, and LinkedIn connection earns points. Complete profiles score higher and rank first in investor searches — creating a flywheel of quality data.</p></div>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:12px;background:var(--blue-faint);border:1px solid var(--border-b);border-radius:8px;padding:14px 16px;">
-            <div style="width:32px;height:32px;border-radius:6px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:700;">🏆</div>
-            <div><div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:3px;">Gamified Founder Experience</div><div style="font-size:11px;color:var(--muted);line-height:1.6;">Leaderboards, achievement badges, and tier-based unlocks keep founders engaged. Top-scoring startups get featured placement, priority matching, and exclusive investor access.</div></div>
+          <div class="util-feature">
+            <div class="util-icon">🏆</div>
+            <div><h5>Gamified Founder Experience</h5><p>Leaderboards, achievement badges, and tier-based unlocks keep founders engaged. Top-scoring startups get featured placement, priority matching, and exclusive investor access.</p></div>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:12px;background:var(--blue-faint);border:1px solid var(--border-b);border-radius:8px;padding:14px 16px;">
-            <div style="width:32px;height:32px;border-radius:6px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:700;">💎</div>
-            <div><div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:3px;">Rewards Marketplace</div><div style="font-size:11px;color:var(--muted);line-height:1.6;">Redeem points for legal templates, pitch deck reviews, Shariah compliance audits, VC office hours, mentor sessions, and data room audits — real services that founders actually need.</div></div>
+          <div class="util-feature">
+            <div class="util-icon">💎</div>
+            <div><h5>Rewards Marketplace</h5><p>Redeem points for legal templates, pitch deck reviews, Shariah compliance audits, VC office hours, mentor sessions, and data room audits — real services that founders actually need.</p></div>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:12px;background:var(--blue-faint);border:1px solid var(--border-b);border-radius:8px;padding:14px 16px;">
-            <div style="width:32px;height:32px;border-radius:6px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:700;">🔄</div>
-            <div><div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:3px;">Liquidity Through Visibility</div><div style="font-size:11px;color:var(--muted);line-height:1.6;">High engagement = higher Kunfa Score = more investor matches = faster funding. The platform creates a direct path from founder effort to capital access — not just a data dump.</div></div>
+          <div class="util-feature">
+            <div class="util-icon">🔄</div>
+            <div><h5>Liquidity Through Visibility</h5><p>High engagement = higher Kunfa Score = more investor matches = faster funding. The platform creates a direct path from founder effort to capital access — not just a data dump.</p></div>
           </div>
         </div>
       </div>
       <div>
         <div style="background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06);">
-          <div style="background:var(--bg2);padding:10px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
+          <div class="mockup-shell-header">
             <div style="font-size:11px;font-weight:600;color:var(--text);">Founder Engagement Loop</div>
-            <div style="font-size:9px;font-weight:600;color:var(--blue);background:var(--blue-faint);border:1px solid var(--border-b);padding:2px 8px;border-radius:100px;">GAMIFICATION ENGINE</div>
+            <div class="engine-badge">GAMIFICATION ENGINE</div>
           </div>
           <div style="padding:20px;">
-            <!-- Flywheel Visual -->
             <div style="display:flex;flex-direction:column;gap:0;margin-bottom:18px;">
-              <div style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--blue-faint);border:1px solid var(--border-b);border-radius:7px 7px 0 0;">
-                <div style="font-size:18px;">📝</div>
-                <div><div style="font-size:11px;font-weight:600;color:var(--text);">1. Complete Profile & Upload Data</div><div style="font-size:10px;color:var(--muted);">+100–500 points per action</div></div>
-                <div style="margin-left:auto;font-size:10px;font-weight:700;color:var(--blue);">→</div>
+              <div class="flywheel-step" style="background:var(--blue-faint);border-color:var(--border-b);border-radius:7px 7px 0 0;">
+                <div class="fw-emoji">📝</div>
+                <div><h5>1. Complete Profile & Upload Data</h5><p>+100–500 points per action</p></div>
+                <div class="fw-arrow" style="color:var(--blue);">→</div>
               </div>
-              <div style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--green-faint);border:1px solid rgba(10,171,92,.15);border-top:none;">
-                <div style="font-size:18px;">📈</div>
-                <div><div style="font-size:11px;font-weight:600;color:var(--text);">2. Kunfa Score Increases</div><div style="font-size:10px;color:var(--muted);">AI scoring improves with more data</div></div>
-                <div style="margin-left:auto;font-size:10px;font-weight:700;color:var(--green);">→</div>
+              <div class="flywheel-step" style="background:var(--green-faint);border-color:rgba(10,171,92,.15);border-top:none;">
+                <div class="fw-emoji">📈</div>
+                <div><h5>2. Kunfa Score Increases</h5><p>AI scoring improves with more data</p></div>
+                <div class="fw-arrow" style="color:var(--green);">→</div>
               </div>
-              <div style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--amber-faint);border:1px solid rgba(217,119,6,.15);border-top:none;">
-                <div style="font-size:18px;">👀</div>
-                <div><div style="font-size:11px;font-weight:600;color:var(--text);">3. Investor Visibility Unlocked</div><div style="font-size:10px;color:var(--muted);">Featured placement + priority matching</div></div>
-                <div style="margin-left:auto;font-size:10px;font-weight:700;color:var(--amber);">→</div>
+              <div class="flywheel-step" style="background:var(--amber-faint);border-color:rgba(217,119,6,.15);border-top:none;">
+                <div class="fw-emoji">👀</div>
+                <div><h5>3. Investor Visibility Unlocked</h5><p>Featured placement + priority matching</p></div>
+                <div class="fw-arrow" style="color:var(--amber);">→</div>
               </div>
-              <div style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--blue-faint);border:1px solid var(--border-b);border-top:none;border-radius:0 0 7px 7px;">
-                <div style="font-size:18px;">🎁</div>
-                <div><div style="font-size:11px;font-weight:600;color:var(--text);">4. Redeem Points for Services</div><div style="font-size:10px;color:var(--muted);">Legal, advisory, compliance reviews</div></div>
-                <div style="margin-left:auto;font-size:10px;font-weight:700;color:var(--blue);">↩</div>
-              </div>
-            </div>
-
-            <!-- Engagement Stats -->
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px;">
-              <div style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:11px;text-align:center;">
-                <div style="font-size:16px;font-weight:600;color:var(--blue);">4.2x</div>
-                <div style="font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:.04em;">Higher Engagement</div>
-              </div>
-              <div style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:11px;text-align:center;">
-                <div style="font-size:16px;font-weight:600;color:var(--green);">92%</div>
-                <div style="font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:.04em;">Profile Completion</div>
-              </div>
-              <div style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:11px;text-align:center;">
-                <div style="font-size:16px;font-weight:600;color:var(--amber);">3.1x</div>
-                <div style="font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:.04em;">Faster to Fund</div>
+              <div class="flywheel-step" style="background:var(--blue-faint);border-color:var(--border-b);border-top:none;border-radius:0 0 7px 7px;">
+                <div class="fw-emoji">🎁</div>
+                <div><h5>4. Redeem Points for Services</h5><p>Legal, advisory, compliance reviews</p></div>
+                <div class="fw-arrow" style="color:var(--blue);">↩</div>
               </div>
             </div>
 
-            <div style="background:var(--blue);border-radius:6px;padding:12px 14px;color:#fff;font-size:11px;line-height:1.6;">
+            <div class="util-stats" style="margin-bottom:14px;">
+              <div class="util-stat">
+                <div class="util-stat-v" style="color:var(--blue);">4.2x</div>
+                <div class="util-stat-l">Higher Engagement</div>
+              </div>
+              <div class="util-stat">
+                <div class="util-stat-v" style="color:var(--green);">92%</div>
+                <div class="util-stat-l">Profile Completion</div>
+              </div>
+              <div class="util-stat">
+                <div class="util-stat-v" style="color:var(--amber);">3.1x</div>
+                <div class="util-stat-l">Faster to Fund</div>
+              </div>
+            </div>
+
+            <div class="cta-banner">
               <strong>The Kunfa difference:</strong> Founders don't just submit data — they earn from it. Every interaction builds their score, unlocks rewards, and accelerates their path to capital. This is why retention is our moat.
             </div>
           </div>
@@ -999,9 +1084,9 @@
         <div class="shariah-badge">World's First — AI-Powered Shariah Monitor</div>
         <div class="shariah-h">Continuous Compliance. Across Every Stage.</div>
         <p class="shariah-sub">The world's first AI-native Shariah compliance scoring and monitoring layer built directly into a venture intelligence platform. Monitor every portfolio company against Shariah principles in real time — from screening through exit — with automated guidance directives issued directly to portfolio companies.</p>
-        <div style="background:var(--shariah);border-radius:8px;padding:14px 16px;margin-top:16px;max-width:400px;">
-          <div style="font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:6px;">Standalone Acquisition Value</div>
-          <div style="font-size:12px;color:#fff;line-height:1.65;">This Shariah compliance engine alone represents a defensible, acquirable asset. No equivalent infrastructure exists globally — any major Islamic bank, sovereign fund, or fintech platform seeking Shariah-compliant venture screening would need to build or buy this capability.</div>
+        <div class="acq-box">
+          <div class="acq-box-title">Standalone Acquisition Value</div>
+          <div class="acq-box-text">This Shariah compliance engine alone represents a defensible, acquirable asset. No equivalent infrastructure exists globally — any major Islamic bank, sovereign fund, or fintech platform seeking Shariah-compliant venture screening would need to build or buy this capability.</div>
         </div>
       </div>
       <div class="shariah-pillars">
@@ -1018,22 +1103,19 @@
           <div><div class="pillar-n">Auto-Issued Directives</div><div class="pillar-d">When a compliance concern is detected, the platform automatically generates and issues a guidance directive to the portfolio company with specific corrective actions required.</div></div>
         </div>
 
-        <!-- Scholar Advisory Board -->
-        <div style="background:var(--shariah);border-radius:8px;padding:16px 18px;margin-top:6px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-            <div style="font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6);">Shariah Scholar Advisory Board</div>
-            <div style="background:rgba(255,255,255,.15);padding:2px 8px;border-radius:3px;font-size:9px;font-weight:600;color:#fff;letter-spacing:.04em;">VERIFIED</div>
+        <div class="scholar-board">
+          <div class="scholar-header">
+            <div class="scholar-title">Shariah Scholar Advisory Board</div>
+            <div class="scholar-verified">VERIFIED</div>
           </div>
-          <div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:7px;padding:12px 14px;margin-bottom:8px;">
-            <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <div style="font-size:14px;font-weight:600;color:#fff;">SA</div>
-            </div>
+          <div class="scholar-card">
+            <div class="scholar-avatar">SA</div>
             <div>
-              <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:2px;">Sheikh Afid Mohammed</div>
-              <div style="font-size:10px;color:rgba(255,255,255,.6);line-height:1.5;">Lead Shariah Scholar · Venture Compliance Advisory<br>Oversees all Shariah screening criteria, compliance thresholds, and guidance directive frameworks</div>
+              <div class="scholar-name">Sheikh Afid Mohammed</div>
+              <div class="scholar-role">Lead Shariah Scholar · Venture Compliance Advisory<br>Oversees all Shariah screening criteria, compliance thresholds, and guidance directive frameworks</div>
             </div>
           </div>
-          <div style="font-size:10px;color:rgba(255,255,255,.5);line-height:1.6;">Our scoring engine is built in direct collaboration with qualified Shariah scholars who validate every screening criterion, compliance threshold, and automated directive. This isn't just AI — it's AI guided by authentic scholarly authority.</div>
+          <div class="scholar-note">Our scoring engine is built in direct collaboration with qualified Shariah scholars who validate every screening criterion, compliance threshold, and automated directive. This isn't just AI — it's AI guided by authentic scholarly authority.</div>
         </div>
       </div>
     </div>
@@ -1304,7 +1386,7 @@
 
 <footer>
   <div class="flogo"><div class="kicon"><img src="https://i.postimg.cc/k5WY2nQy/Kunfa-ai.png" alt="Kunfa"></div></div>
-  <!-- <span>A Vitality Capital Studio Company</span> -->
+  <span></span>
   <span>© 2026</span>
 </footer>
 
