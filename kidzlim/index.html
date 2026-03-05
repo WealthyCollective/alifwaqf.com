@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kidzlim — Investor Pitch</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#000;--paper:#faf9f6;--warm:#f4f0e8;--cream:#ede9df;
+    --sky:#3b82f6;--skylt:#eff6ff;--sage:#5a8a6a;--sagelt:#eef5f0;
+    --coral:#e05a3a;--corallt:#fdf2ee;--gold:#b8860b;--goldlt:#fdfaed;
+    --lilac:#7c5cbf;--lilaclt:#f3f0fa;--muted:#222;
+    --border:#e4e0d8;--borderdk:#ccc8be;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:#000;font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;line-height:1.6;overflow-x:hidden;font-size:14px;}
+  .slide{width:100%;min-height:100vh;padding:72px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+  .tag{display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border:1px solid currentColor;border-radius:100px;margin-bottom:28px;opacity:.65;}
+  .slide-num{position:absolute;bottom:36px;right:80px;font-family:'Space Mono',monospace;font-size:10px;color:var(--border);letter-spacing:.04em;}
+
+  /* S1 */
+  .s1{background:var(--paper);}
+  .s1::before{content:'';position:absolute;top:-200px;right:-150px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(220,238,255,.3) 0%,transparent 65%);pointer-events:none;}
+  .s1::after{content:'';position:absolute;bottom:-120px;left:-100px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(238,245,240,.3) 0%,transparent 68%);pointer-events:none;}
+  .s1 .nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:80px;position:relative;z-index:2;}
+  .s1 .logo{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;color:#000;font-weight:700;}
+  .s1 .pill{font-family:'Space Mono',monospace;font-size:9px;padding:7px 16px;border:1px solid var(--border);border-radius:100px;color:#000;letter-spacing:.08em;}
+  .s1 h1{font-family:'Lora',serif;font-size:clamp(24px,4.5vw,56px);line-height:1.05;letter-spacing:-1px;max-width:860px;margin-bottom:28px;position:relative;z-index:2;}
+  .s1 h1 em{color:var(--sky);font-style:italic;}
+  .s1 .sub{font-size:15px;color:#000;max-width:460px;font-weight:300;line-height:1.75;margin-bottom:60px;position:relative;z-index:2;}
+  .s1 .metrics{display:flex;flex-wrap:wrap;gap:28px 48px;position:relative;z-index:2;padding-top:36px;border-top:1px solid var(--border);}
+  .m-val{font-family:'Lora',serif;font-size:clamp(20px,3vw,28px);letter-spacing:-.5px;margin-bottom:3px;}
+  .m-lbl{font-size:10px;color:var(--muted);letter-spacing:.04em;}
+
+  /* S2 */
+  .s2{background:var(--warm);}
+  .s2 .layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .s2 h2{font-family:'Lora',serif;font-size:clamp(24px,3.5vw,42px);line-height:1.1;letter-spacing:-1px;margin-bottom:18px;}
+  .s2 h2 em{color:var(--sage);font-style:italic;}
+  .s2 .desc{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:40px;max-width:400px;}
+  .pathway-item{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--borderdk);align-items:flex-start;}
+  .pathway-item:first-child{border-top:1px solid var(--borderdk);}
+  .p-num{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);padding-top:3px;min-width:20px;}
+  .p-body h4{font-size:15px;font-weight:600;margin-bottom:3px;}
+  .p-body p{font-size:13px;color:var(--muted);line-height:1.6;}
+  .p-age{margin-left:auto;font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);border:1px solid var(--borderdk);border-radius:100px;padding:3px 10px;white-space:nowrap;height:fit-content;margin-top:3px;}
+  .ai-card{background:var(--paper);border-radius:20px;border:1px solid var(--border);padding:36px;box-shadow:0 4px 24px rgba(0,0,0,.05);}
+  .ai-card-title{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;}
+  .ai-step{display:flex;gap:16px;align-items:flex-start;margin-bottom:20px;}
+  .ai-icon{width:52px;height:52px;border-radius:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .ai-text h5{font-size:13px;font-weight:600;margin-bottom:2px;color:var(--ink);}
+  .ai-text p{font-size:12px;color:var(--muted);line-height:1.55;}
+  .ai-line{width:1px;height:16px;background:var(--border);margin:-4px 0 -4px 16px;}
+  .ai-progress{margin-top:28px;padding-top:24px;border-top:1px solid var(--border);}
+  .ai-progress-top{display:flex;justify-content:space-between;margin-bottom:8px;font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);}
+  .prog-track{height:3px;background:var(--cream);border-radius:2px;}
+  .prog-fill{height:3px;border-radius:2px;background:linear-gradient(90deg,var(--sage),var(--sky));}
+
+  /* S3 */
+  .s3{background:var(--paper);padding-bottom:100px;}
+  .s3::before{content:'';position:absolute;top:0;left:0;right:0;height:380px;background:linear-gradient(180deg,#eef6ff 0%,transparent 100%);pointer-events:none;}
+  .s3 .sec-head{text-align:center;margin-bottom:72px;position:relative;z-index:2;}
+  .s3 h2{font-family:'Lora',serif;font-size:clamp(24px,4vw,48px);line-height:1.06;letter-spacing:-1px;margin-bottom:16px;}
+  .s3 h2 em{color:var(--sky);font-style:italic;}
+  .s3 .sub-text{font-size:13px;color:var(--muted);font-weight:300;}
+  .mockups-row{display:flex;gap:28px;justify-content:center;align-items:flex-end;flex-wrap:wrap;position:relative;z-index:2;}
+  .phone-wrap{display:flex;flex-direction:column;align-items:center;}
+  .phone{width:230px;border-radius:38px;border:1px solid #d8d4cc;overflow:hidden;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.10),0 4px 16px rgba(0,0,0,.06);}
+  .phone.center{transform:translateY(-24px);}
+  .notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:72px;height:22px;background:#f0ede6;border-radius:11px;z-index:10;}
+  .phone-lbl{margin-top:16px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;}
+
+  .sc-home{height:460px;background:#faf8f4;padding:44px 18px 18px;}
+  .sc-home .greet{font-size:11px;color:var(--muted);margin-bottom:1px;}
+  .sc-home .uname{font-family:'Lora',serif;font-size:20px;color:var(--ink);margin-bottom:18px;}
+  .streak-chip{background:#fff7e6;border:1px solid #f0d888;border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+  .sc-icon{width:22px;height:22px;display:flex;align-items:center;justify-content:center;}
+  .sc-sv{font-size:15px;font-weight:700;color:var(--gold);}
+  .sc-sl{font-size:9px;color:var(--muted);}
+  .sc-sec{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.1em;margin-bottom:8px;text-transform:uppercase;}
+  .mod-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+  .mod{border-radius:12px;padding:12px 10px;position:relative;overflow:hidden;border:1px solid transparent;}
+  .mod-ico{width:28px;height:28px;margin-bottom:6px;display:flex;align-items:center;justify-content:center;}
+  .mod-ttl{font-size:10px;font-weight:600;}
+  .mod-sub{font-size:8px;color:var(--muted);margin-top:1px;}
+  .mod-prog{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(0,0,0,.06);}
+  .mod-fill{height:100%;border-radius:1px;}
+  .m-sage{background:#f0f7f2;border-color:#c8e0cf;}
+  .m-sky{background:#eff6ff;border-color:#bdd8f7;}
+  .m-coral{background:#fef3ee;border-color:#f5c4b2;}
+  .m-gold{background:#fffaec;border-color:#ead98a;}
+
+  .sc-arabic{height:520px;background:#f6f4f0;padding:44px 16px 18px;}
+  .sc-back{font-size:9px;color:var(--muted);margin-bottom:14px;}
+  .sc-lesson-t{font-family:'Lora',serif;font-size:17px;color:var(--ink);margin-bottom:2px;}
+  .sc-lesson-s{font-size:10px;color:var(--muted);margin-bottom:18px;}
+  .arabic-card{background:white;border:1px solid var(--border);border-radius:16px;padding:24px 14px;text-align:center;margin-bottom:12px;box-shadow:0 2px 12px rgba(0,0,0,.05);}
+  .ar-char{font-size:58px;line-height:1;color:var(--ink);margin-bottom:6px;font-family:serif;}
+  .ar-name{font-size:11px;color:var(--muted);}
+  .ar-trans{font-size:16px;color:var(--sage);font-weight:600;margin-top:3px;}
+  .choice-g{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px;}
+  .ch-btn{background:white;border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center;font-size:18px;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.04);}
+  .ch-btn.ok{background:var(--sagelt);border-color:var(--sage);}
+  .xp-row{display:flex;align-items:center;gap:8px;background:white;border:1px solid var(--border);border-radius:10px;padding:9px 12px;}
+  .xp-v{font-size:12px;font-weight:700;color:var(--gold);}
+  .xp-bar-t{flex:1;height:3px;background:var(--cream);border-radius:2px;}
+  .xp-bar-f{height:3px;border-radius:2px;background:var(--gold);width:62%;}
+  .xp-lvl{font-family:'Space Mono',monospace;font-size:8px;color:var(--muted);}
+
+  .sc-quran{height:460px;background:#f8f6ff;padding:44px 16px 18px;}
+  .q-head{text-align:center;margin-bottom:18px;}
+  .q-snum{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.1em;margin-bottom:2px;}
+  .q-sname{font-family:'Lora',serif;font-size:20px;color:var(--ink);margin-bottom:2px;}
+  .q-sarab{font-size:22px;color:var(--lilac);font-family:serif;}
+  .q-verse{background:white;border:1px solid #ddd8f4;border-radius:14px;padding:18px 14px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.04);}
+  .q-ar{font-size:18px;text-align:right;color:var(--ink);line-height:1.7;font-family:serif;margin-bottom:8px;}
+  .q-tr{font-size:10px;color:var(--muted);line-height:1.6;}
+  .q-ctrl{display:flex;gap:8px;justify-content:center;align-items:center;margin-bottom:12px;}
+  .q-btn-s{width:38px;height:38px;border-radius:50%;background:white;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;}
+  .q-btn-p{width:50px;height:50px;border-radius:50%;background:var(--lilac);border:none;display:flex;align-items:center;justify-content:center;font-size:18px;}
+  .q-dots{display:flex;gap:4px;justify-content:center;}
+  .q-d{width:5px;height:5px;border-radius:50%;background:var(--border);}
+  .q-d.on{background:var(--lilac);width:14px;border-radius:3px;}
+
+  /* S4 - Market */
+  .s4{background:var(--warm);}
+  .s4 .g2{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .s4 h2{font-family:'Lora',serif;font-size:clamp(28px,4.5vw,52px);line-height:1.1;letter-spacing:-1px;margin-bottom:16px;}
+  .big-n{font-family:'Lora',serif;font-size:clamp(48px,7vw,80px);letter-spacing:-3px;line-height:1;margin-bottom:6px;}
+  .big-l{font-size:14px;color:var(--muted);font-weight:300;max-width:280px;}
+  .srow{display:flex;flex-wrap:wrap;gap:24px 40px;padding:28px 0;border-top:1px solid var(--borderdk);margin-top:28px;}
+  .smi-v{font-family:'Lora',serif;font-size:28px;margin-bottom:2px;}
+  .smi-l{font-size:11px;color:var(--muted);}
+  .comp-title{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;}
+  .comp-row{display:grid;grid-template-columns:1.5fr 1.1fr .5fr .6fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);font-size:12px;align-items:center;}
+  .comp-row.hdr{color:var(--muted);font-size:9px;font-family:'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;}
+  .comp-row.kz{background:var(--ink);color:var(--paper);padding:14px 18px;margin:0 -18px;border-radius:10px;border:none;}
+  .dot-y{width:7px;height:7px;border-radius:50%;background:var(--sage);display:inline-block;}
+  .dot-n{width:7px;height:7px;border-radius:50%;background:var(--border);display:inline-block;}
+  .comp-note{margin-top:20px;font-size:12px;color:var(--muted);line-height:1.7;}
+  .comp-note strong{color:var(--ink);}
+
+  /* S5 - Investment */
+  .s5{background:var(--paper);}
+  .s5 .g2{display:grid;grid-template-columns:1fr 1fr;gap:80px;}
+  .s5 h2{font-family:'Lora',serif;font-size:clamp(30px,4.5vw,56px);line-height:1.08;letter-spacing:-1px;margin-bottom:20px;}
+  .s5 h2 em{color:var(--sky);font-style:italic;}
+  .s5 .sub{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:40px;max-width:400px;}
+  .inv-list{display:flex;flex-direction:column;}
+  .inv-row{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--border);gap:16px;}
+  .inv-row:first-child{border-top:1px solid var(--border);}
+  .inv-lbl{font-size:11px;color:var(--muted);margin-bottom:3px;}
+  .inv-val{font-family:'Lora',serif;font-size:clamp(22px,3vw,28px);letter-spacing:-.5px;}
+  .inv-note{font-size:11px;color:var(--muted);max-width:180px;text-align:right;line-height:1.6;}
+  .team-list{display:flex;flex-direction:column;gap:12px;}
+  .tc{background:var(--warm);border:1px solid var(--border);border-radius:14px;padding:20px;display:flex;gap:16px;align-items:flex-start;}
+  .tc.gold-border{border-color:#d4b96a;}
+  .av{width:42px;height:42px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:16px;font-weight:600;}
+  .tc-name{font-size:14px;font-weight:600;margin-bottom:1px;}
+  .tc-role{font-size:11px;color:var(--muted);margin-bottom:6px;}
+  .tc-bio{font-size:12px;color:var(--muted);line-height:1.55;}
+  .vc-tag{display:inline-flex;margin-top:7px;padding:3px 9px;border:1px solid #d4b96a;border-radius:100px;font-family:'Space Mono',monospace;font-size:8px;color:var(--gold);letter-spacing:.08em;}
+  .s5 .foot{grid-column:1/-1;padding-top:48px;margin-top:8px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
+  .foot-qt{font-family:'Lora',serif;font-style:italic;font-size:20px;color:var(--muted);}
+  .foot-ct{text-align:right;font-size:13px;color:var(--muted);line-height:1.9;}
+  .foot-ct strong{color:var(--ink);font-weight:600;display:block;font-size:15px;}
+
+  /* Discover screen */
+  .sc-discover{height:460px;background:#f7f5f2;padding:44px 0 0 0;overflow:hidden;}
+  .disc-header{padding:0 16px 14px;}
+  .disc-label{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.12em;color:var(--muted);margin-bottom:3px;text-transform:uppercase;}
+  .disc-title{font-family:'Lora',serif;font-size:20px;color:var(--ink);margin-bottom:1px;}
+  .disc-sub{font-size:10px;color:var(--muted);}
+  .disc-card{margin:0 0 8px;}
+  .disc-card-dark{background:#0f0f1a;padding:16px 16px 12px;}
+  .disc-art-label{font-family:'Space Mono',monospace;font-size:7px;letter-spacing:.15em;color:rgba(255,255,255,.3);margin-bottom:4px;text-transform:uppercase;}
+  .disc-art-credit{font-family:'Space Mono',monospace;font-size:7px;color:rgba(255,255,255,.25);margin-top:8px;letter-spacing:.06em;}
+  .disc-art-desc{font-size:10px;color:rgba(255,255,255,.55);margin-top:4px;line-height:1.5;font-style:italic;}
+  .disc-card-light{background:white;margin:0 12px;border-radius:14px;padding:14px;box-shadow:0 2px 10px rgba(0,0,0,.05);border:1px solid var(--border);}
+  .disc-tile-title{font-family:'Lora',serif;font-size:15px;color:var(--ink);margin:3px 0 1px;}
+  .disc-tile-sub{font-size:10px;color:var(--muted);}
+  .disc-progress-row{display:flex;align-items:center;gap:8px;margin-top:12px;}
+  .disc-prog-bar{flex:1;height:3px;background:var(--cream);border-radius:2px;overflow:hidden;}
+  .disc-prog-fill{height:100%;border-radius:2px;background:var(--sage);}
+  .disc-prog-label{font-family:'Space Mono',monospace;font-size:8px;color:var(--muted);white-space:nowrap;}
+
+  /* GTM */
+  .s-gtm{background:var(--paper);}
+  .s-gtm::before{content:'';position:absolute;top:-150px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,#eef6ff 0%,transparent 65%);pointer-events:none;}
+  .gtm-h2{font-family:'Lora',serif;font-size:clamp(28px,4vw,52px);line-height:1.08;letter-spacing:-1px;margin-bottom:12px;}
+  .gtm-sub{font-size:15px;color:var(--muted);max-width:500px;line-height:1.7;margin-bottom:40px;}
+  .gtm-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px;}
+  .gtm-partner{border:1px solid var(--border);border-radius:18px;padding:28px;background:var(--warm);}
+  .gtm-partner-1{border-color:#bdd8f7;}
+  .gtm-partner-2{border-color:#c8e0cf;}
+  .gtm-partner-top{display:flex;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
+  .gtm-logo-box{width:48px;height:48px;border-radius:12px;background:#e8f0f8;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .gtm-partner-name{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+  .gtm-partner-type{font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;letter-spacing:.06em;}
+  .gtm-reach-pill{margin-left:auto;font-family:'Space Mono',monospace;font-size:9px;padding:4px 10px;border:1px solid;border-radius:100px;white-space:nowrap;font-weight:700;}
+  .gtm-partner-desc{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:16px;}
+  .gtm-tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .gtm-tag{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.06em;padding:4px 10px;border-radius:100px;background:#eff6ff;color:var(--sky);border:1px solid #bdd8f7;}
+  .gtm-channels{border-top:1px solid var(--border);padding-top:28px;}
+  .gtm-channel-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:20px;}
+  .gtm-channel-row{display:flex;align-items:flex-start;gap:0;flex-wrap:wrap;}
+  .gtm-channel{flex:1;min-width:140px;}
+  .gtm-ch-arrow{font-size:18px;color:var(--border);padding:0 16px;padding-top:4px;}
+  .gtm-ch-num{font-family:'Lora',serif;font-size:24px;margin-bottom:4px;}
+  .gtm-ch-name{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px;}
+  .gtm-ch-desc{font-size:11px;color:var(--muted);line-height:1.6;}
+
+  .vc-studio-credit{position:absolute;bottom:-32px;right:0;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--border);}
+
+  /* ═══════════════ RESPONSIVE ═══════════════ */
+
+  /* Tablet */
+  @media(max-width:1024px){
+    .slide{padding:56px 40px;}
+    .slide-num{right:40px;bottom:24px;}
+    .s1 .nav{margin-bottom:48px;}
+    .s2 .layout,.s4 .g2,.s5 .g2{grid-template-columns:1fr;gap:48px;}
+    .gtm-grid{grid-template-columns:1fr;}
+    .mockups-row{gap:20px;}
+    .phone{width:200px;}
+    .sc-home,.sc-quran,.sc-discover{height:420px;}
+    .sc-arabic{height:480px;}
+    .s5 .foot{flex-direction:column;align-items:flex-start;}
+    .foot-ct{text-align:left;}
+    .gtm-channel-row .gtm-ch-arrow{display:none;}
+    .gtm-channel-row{gap:24px;}
+    .gtm-channel{min-width:calc(50% - 12px);}
+  }
+
+  /* Mobile */
+  @media(max-width:640px){
+    .slide{padding:40px 20px;min-height:auto;padding-top:48px;padding-bottom:60px;}
+    .slide-num{right:20px;bottom:16px;}
+    .s1 .nav{margin-bottom:32px;}
+    .s1 .sub{font-size:15px;margin-bottom:40px;}
+    .s1 .metrics{gap:20px 32px;}
+    .m-val{font-size:24px;}
+    .tag{margin-bottom:20px;}
+    .s2 .layout{grid-template-columns:1fr;gap:36px;}
+    .s2 .desc{max-width:100%;}
+    .ai-card{padding:24px;}
+    .ai-icon{width:40px;height:40px;border-radius:10px;}
+    .ai-icon svg{width:40px;height:40px;}
+    .pathway-item{flex-wrap:wrap;gap:12px;}
+    .p-age{margin-left:0;}
+
+    .s3{padding-bottom:60px;}
+    .s3 .sec-head{margin-bottom:40px;}
+    .mockups-row{flex-direction:column;align-items:center;gap:32px;}
+    .phone{width:260px;}
+    .phone.center{transform:none;}
+    .sc-home,.sc-quran,.sc-discover{height:460px;}
+    .sc-arabic{height:520px;}
+
+    .s4 .g2,.s5 .g2{grid-template-columns:1fr;gap:36px;}
+    .comp-row{grid-template-columns:1.2fr 1fr .4fr .4fr;gap:8px;font-size:11px;}
+    .comp-row.kz{margin:0 -12px;padding:12px 12px;}
+    .srow{gap:16px 28px;}
+
+    .inv-row{flex-direction:column;align-items:flex-start;gap:8px;}
+    .inv-note{text-align:left;max-width:100%;}
+    .tc{flex-direction:column;gap:12px;}
+    .foot-qt{font-size:16px;}
+    .s5 .foot{grid-column:auto;}
+
+    .gtm-grid{grid-template-columns:1fr;}
+    .gtm-partner{padding:20px;}
+    .gtm-partner-top{gap:10px;}
+    .gtm-reach-pill{margin-left:0;margin-top:4px;}
+    .gtm-channel-row{flex-direction:column;gap:20px;}
+    .gtm-channel-row .gtm-ch-arrow{display:none;}
+    .gtm-channel{min-width:100%;}
+  }
+</style>
+</head>
+<body>
+
+<section class="slide s1">
+  <div class="slide-num">01 / 06</div>
+  <nav class="s1 nav">
+    <span class="logo">KIDZLIM</span>
+    <span class="pill">Investor Deck · 2026</span>
+  </nav>
+  <div class="tag" style="color:#000;border-color:#000;background:transparent">AI-Powered Islamic Edutainment</div>
+  <h1>Every child deserves to grow up <em>loving</em> their faith.</h1>
+  <p class="sub">Kidzlim is the first AI-driven Islamic learning platform that adapts to each child — delivering Quran, Arabic, and moral values through beautiful design and play.</p>
+  <div class="s1 metrics">
+    <div><div class="m-val">1.8B</div><div class="m-lbl">Global Muslims</div></div>
+    <div><div class="m-val">185M</div><div class="m-lbl">Kids 5–14</div></div>
+    <div><div class="m-val">1,340+</div><div class="m-lbl">App Signups</div></div>
+    <div><div class="m-val">$0</div><div class="m-lbl">AI Islamic EdTech today</div></div>
+    <div><div class="m-val">$1M</div><div class="m-lbl">Raising</div></div>
+  </div>
+</section>
+
+<section class="slide s2">
+  <div class="slide-num">02 / 06</div>
+  <div class="layout">
+    <div>
+      <div class="tag" style="color:var(--sage);border-color:var(--sage)">AI Learning System</div>
+      <h2>The AI that knows <em>your child.</em></h2>
+      <p class="desc">No fixed curriculum. Kidzlim's engine reads engagement, progress, and gaps in real time — rewriting the learning path every single session.</p>
+      <div>
+        <div class="pathway-item">
+          <span class="p-num">01</span>
+          <div class="p-body"><h4>Little Explorer</h4><p>First words of Arabic. Daily duas. Quranic stories through narrated books and song.</p></div>
+          <span class="p-age">Ages 5–7</span>
+        </div>
+        <div class="pathway-item">
+          <span class="p-num">02</span>
+          <div class="p-body"><h4>Rising Scholar</h4><p>Surah memorisation. Prophet stories. Quizzes that adapt to weekly progress.</p></div>
+          <span class="p-age">Ages 8–11</span>
+        </div>
+        <div class="pathway-item">
+          <span class="p-num">03</span>
+          <div class="p-body"><h4>Deen Champion</h4><p>Quranic tafseer. Arabic grammar. Life skills rooted in Islamic values.</p></div>
+          <span class="p-age">Ages 12–14</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="ai-card">
+        <div class="ai-card-title">How the AI Engine Works</div>
+        <div class="ai-step">
+          <div class="ai-icon" style="background:#eff6ff;border-radius:14px">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><ellipse cx="26" cy="26" rx="23" ry="10" stroke="#bdd8f7" stroke-width=".7" opacity=".6"/><ellipse cx="26" cy="26" rx="18" ry="7.5" stroke="#93c5fd" stroke-width=".7" opacity=".7"/><ellipse cx="26" cy="26" rx="12.5" ry="5" stroke="#60a5fa" stroke-width=".8" opacity=".8"/><ellipse cx="26" cy="26" rx="7.5" ry="3" stroke="#3b82f6" stroke-width=".9" opacity=".9"/><ellipse cx="26" cy="26" rx="22" ry="9.5" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="1.5 3" opacity=".25"/><ellipse cx="26" cy="26" rx="16" ry="6.5" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="1.5 2.5" opacity=".3"/><rect x="21" y="21" width="10" height="10" fill="#1c2e4a" rx="1.5"/><rect x="21" y="21" width="10" height="3" fill="#162338" rx="1" opacity=".6"/><rect x="21" y="25.5" width="10" height="1.2" fill="#60a5fa" opacity=".5"/></svg>
+          </div>
+          <div class="ai-text"><h5>Session Analysis</h5><p>Tracks every tap, hesitation, and skip to model the child's real-time learning state.</p></div>
+        </div>
+        <div class="ai-line"></div>
+        <div class="ai-step">
+          <div class="ai-icon" style="background:#eef5f0;border-radius:14px">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><polygon points="26,6 33,11 40,11 45,18 45,26 40,33 33,40 26,45 19,40 12,33 7,26 7,18 12,11 19,11" stroke="#5a8a6a" stroke-width=".6" fill="none" opacity=".3"/><rect x="15" y="15" width="22" height="22" rx="1" stroke="#5a8a6a" stroke-width="1" fill="none" opacity=".5"/><rect x="15" y="15" width="22" height="22" rx="1" stroke="#5a8a6a" stroke-width="1" fill="none" opacity=".5" transform="rotate(45 26 26)"/><polygon points="26,17 28.6,23.4 35,23.4 30.2,27.6 32,34 26,30.2 20,34 21.8,27.6 17,23.4 23.4,23.4" fill="#eef5f0" stroke="#5a8a6a" stroke-width=".8"/><circle cx="26" cy="26" r="2.5" fill="#5a8a6a"/><line x1="26" y1="6" x2="26" y2="17" stroke="#5a8a6a" stroke-width=".6" opacity=".4"/><line x1="26" y1="35" x2="26" y2="46" stroke="#5a8a6a" stroke-width=".6" opacity=".4"/><line x1="6" y1="26" x2="17" y2="26" stroke="#5a8a6a" stroke-width=".6" opacity=".4"/><line x1="35" y1="26" x2="46" y2="26" stroke="#5a8a6a" stroke-width=".6" opacity=".4"/></svg>
+          </div>
+          <div class="ai-text"><h5>Dynamic Path Mapping</h5><p>Learning map rebuilt after every session — not daily, not weekly. Every time.</p></div>
+        </div>
+        <div class="ai-line"></div>
+        <div class="ai-step">
+          <div class="ai-icon" style="background:#f3f0fa;border-radius:14px">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><line x1="5" y1="5" x2="21" y2="21" stroke="#7c5cbf" stroke-width=".8" opacity=".25"/><line x1="26" y1="4" x2="26" y2="20" stroke="#7c5cbf" stroke-width=".8" opacity=".3"/><line x1="47" y1="5" x2="31" y2="21" stroke="#7c5cbf" stroke-width=".8" opacity=".25"/><line x1="48" y1="26" x2="32" y2="26" stroke="#7c5cbf" stroke-width=".8" opacity=".3"/><line x1="47" y1="47" x2="31" y2="31" stroke="#7c5cbf" stroke-width=".8" opacity=".25"/><line x1="26" y1="48" x2="26" y2="32" stroke="#7c5cbf" stroke-width=".8" opacity=".3"/><line x1="5" y1="47" x2="21" y2="31" stroke="#7c5cbf" stroke-width=".8" opacity=".25"/><line x1="4" y1="26" x2="20" y2="26" stroke="#7c5cbf" stroke-width=".8" opacity=".3"/><polygon points="24,22 26,19 28,22" fill="#7c5cbf" opacity=".5"/><polygon points="24,30 26,33 28,30" fill="#7c5cbf" opacity=".5"/><polygon points="22,24 19,26 22,28" fill="#7c5cbf" opacity=".5"/><polygon points="30,24 33,26 30,28" fill="#7c5cbf" opacity=".5"/><circle cx="26" cy="26" r="4" fill="#f3f0fa" stroke="#7c5cbf" stroke-width="1.5"/><circle cx="26" cy="26" r="1.8" fill="#7c5cbf"/></svg>
+          </div>
+          <div class="ai-text"><h5>Gap Targeting</h5><p>If a letter or concept isn't sticking, AI queues more activities until mastered.</p></div>
+        </div>
+        <div class="ai-line"></div>
+        <div class="ai-step">
+          <div class="ai-icon" style="background:#fdfaed;border-radius:14px">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M10 22 Q10 8 26 8 Q42 8 42 22" fill="#c9a84c" opacity=".85"/><path d="M12 22 Q12 10.5 26 10.5 Q40 10.5 40 22" fill="#f0d06a" opacity=".5"/><rect x="10" y="22" width="32" height="7" rx="1" fill="#ddb94a" opacity=".7"/><rect x="10" y="29" width="32" height="5" rx="1" fill="#e8eff8" opacity=".9"/><line x1="14" y1="30" x2="14" y2="34" stroke="#5a8a6a" stroke-width=".6"/><line x1="18" y1="30" x2="18" y2="34" stroke="#5a8a6a" stroke-width=".6"/><line x1="22" y1="30" x2="22" y2="34" stroke="#5a8a6a" stroke-width=".6"/><line x1="26" y1="30" x2="26" y2="34" stroke="#5a8a6a" stroke-width=".6"/><line x1="30" y1="30" x2="30" y2="34" stroke="#5a8a6a" stroke-width=".6"/><line x1="34" y1="30" x2="34" y2="34" stroke="#5a8a6a" stroke-width=".6"/><line x1="38" y1="30" x2="38" y2="34" stroke="#5a8a6a" stroke-width=".6"/><line x1="10" y1="32" x2="42" y2="32" stroke="#7c5cbf" stroke-width=".4" opacity=".3"/><line x1="26" y1="4" x2="26" y2="8" stroke="#b8860b" stroke-width="1.2"/><circle cx="26" cy="3.5" r="1.2" fill="#b8860b"/><rect x="8" y="34" width="36" height="2" rx=".8" fill="#e4e0d8"/><rect x="5" y="36" width="42" height="2" rx=".8" fill="#ede9df"/></svg>
+          </div>
+          <div class="ai-text"><h5>Reward Intelligence</h5><p>Jannah milestone badges timed to maximise motivation and habit formation.</p></div>
+        </div>
+        <div class="ai-progress">
+          <div class="ai-progress-top"><span>Ali · Level 2 Arabic</span><span>Session 14 · 72%</span></div>
+          <div class="prog-track"><div class="prog-fill" style="width:72%"></div></div>
+        </div>
+      </div>
+      <div style="margin-top:16px;font-family:'Space Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:.1em;opacity:.7;line-height:1.8;">
+        ICONS INSPIRED BY — Dr. Ahmed Mater (Magnetism, ATHR Gallery) · Peter Sanders (Islamic photography)
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide s3">
+  <div class="slide-num">03 / 06</div>
+  <div class="sec-head">
+    <div class="tag" style="color:var(--sky);border-color:var(--sky);display:inline-flex;margin-left:auto;margin-right:auto">Product Vision</div>
+    <h2>Designed to be the <em>best</em><br>kids app on Earth.</h2>
+    <p class="sub-text">Premium Islamic edutainment — beautiful enough to compete with anyone.</p>
+  </div>
+  <div class="mockups-row">
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="sc-home">
+          <p class="greet">Good morning,</p>
+          <p class="uname">Ayah-Sophia ◑</p>
+          <div class="streak-chip">
+            <span class="sc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b8860b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg></span>
+            <div><div class="sc-sv">14 Day Streak</div><div class="sc-sl">Keep it up!</div></div>
+          </div>
+          <p class="sc-sec">Continue Learning</p>
+          <div class="mod-grid">
+            <div class="mod m-sage"><div class="mod-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5a8a6a" stroke-width="1.8" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="mod-ttl">Arabic</div><div class="mod-sub">Letter ض</div><div class="mod-prog"><div class="mod-fill" style="width:65%;background:var(--sage)"></div></div></div>
+            <div class="mod m-sky"><div class="mod-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"><path d="M3 6c.7-1 1.5-2 3-2s2.3 1 3 2 1.5 2 3 2 2.3-1 3-2 1.5-2 3-2"/><path d="M3 12c.7-1 1.5-2 3-2s2.3 1 3 2 1.5 2 3 2 2.3-1 3-2 1.5-2 3-2"/><path d="M3 18c.7-1 1.5-2 3-2s2.3 1 3 2 1.5 2 3 2 2.3-1 3-2 1.5-2 3-2"/></svg></div><div class="mod-ttl">Quran</div><div class="mod-sub">Al-Fatiha</div><div class="mod-prog"><div class="mod-fill" style="width:80%;background:var(--sky)"></div></div></div>
+            <div class="mod m-coral"><div class="mod-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e05a3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="mod-ttl">Values</div><div class="mod-sub">Honesty Story</div><div class="mod-prog"><div class="mod-fill" style="width:30%;background:var(--coral)"></div></div></div>
+            <div class="mod m-gold"><div class="mod-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b8860b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="11" x2="15" y2="11" stroke-width="2.5"/><line x1="18" y1="13" x2="18" y2="13" stroke-width="2.5"/><rect x="2" y="6" width="20" height="12" rx="5"/></svg></div><div class="mod-ttl">Quizzes</div><div class="mod-sub">3 new today</div><div class="mod-prog"><div class="mod-fill" style="width:15%;background:var(--gold)"></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="phone-lbl">Home · Dashboard</div>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone center">
+        <div class="notch"></div>
+        <div class="sc-arabic">
+          <div class="sc-back">← Arabic Island</div>
+          <div class="sc-lesson-t">Letter Recognition</div>
+          <div class="sc-lesson-s">Lesson 7 of 28 · AI-adapted</div>
+          <div class="arabic-card">
+            <div class="ar-char">ض</div>
+            <div class="ar-name">Daad</div>
+            <div class="ar-trans">ḍ</div>
+          </div>
+          <div class="choice-g">
+            <div class="ch-btn">ظ</div><div class="ch-btn ok">ض ✓</div>
+            <div class="ch-btn">ص</div><div class="ch-btn">ط</div>
+          </div>
+          <div class="xp-row">
+            <span class="xp-v">+25 XP</span>
+            <div class="xp-bar-t"><div class="xp-bar-f"></div></div>
+            <span class="xp-lvl">Level 3</span>
+          </div>
+        </div>
+      </div>
+      <div class="phone-lbl">Arabic · AI-Adaptive</div>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="sc-quran">
+          <div class="q-head">
+            <div class="q-snum">SURAH 001</div>
+            <div class="q-sname">Al-Fatiha</div>
+            <div class="q-sarab">الفاتحة</div>
+          </div>
+          <div class="q-verse">
+            <div class="q-ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            <div class="q-tr">In the name of Allah, the Entirely Merciful, the Especially Merciful.</div>
+          </div>
+          <div class="q-ctrl">
+            <div class="q-btn-s">⏮</div>
+            <div class="q-btn-p" style="color:white">▶</div>
+            <div class="q-btn-s">⏭</div>
+          </div>
+          <div class="q-dots">
+            <div class="q-d on"></div><div class="q-d"></div><div class="q-d"></div>
+            <div class="q-d"></div><div class="q-d"></div><div class="q-d"></div><div class="q-d"></div>
+          </div>
+        </div>
+      </div>
+      <div class="phone-lbl">Quran · Journey</div>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="sc-discover">
+          <div class="disc-header">
+            <div class="disc-label">VISUAL LEARNING</div>
+            <div class="disc-title">Islamic Arts</div>
+            <div class="disc-sub">Explore · Create · Reflect</div>
+          </div>
+          <div class="disc-card disc-card-dark">
+            <div class="disc-art-label">MAGNETISM</div>
+            <svg width="100%" height="90" viewBox="0 0 200 90" fill="none"><ellipse cx="100" cy="50" rx="95" ry="28" stroke="rgba(255,255,255,.08)" stroke-width="1"/><ellipse cx="100" cy="50" rx="78" ry="22" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="3 4"/><ellipse cx="100" cy="50" rx="60" ry="16" stroke="rgba(255,255,255,.14)" stroke-width="1"/><ellipse cx="100" cy="50" rx="42" ry="11" stroke="rgba(255,255,255,.18)" stroke-width="1" stroke-dasharray="2 3"/><ellipse cx="100" cy="50" rx="26" ry="7" stroke="rgba(255,255,255,.25)" stroke-width="1"/><ellipse cx="100" cy="50" rx="14" ry="4" stroke="rgba(255,255,255,.35)" stroke-width="1"/><rect x="87" y="40" width="26" height="26" fill="#0f0f1a" rx="2"/><rect x="87" y="40" width="26" height="7" fill="#080810" rx="1"/><rect x="87" y="53" width="26" height="2.5" fill="rgba(201,168,76,.6)"/><circle cx="15" cy="50" r="1" fill="white" opacity=".3"/><circle cx="185" cy="50" r="1" fill="white" opacity=".3"/><circle cx="40" cy="30" r=".8" fill="white" opacity=".2"/><circle cx="160" cy="70" r=".8" fill="white" opacity=".2"/><circle cx="55" cy="68" r=".7" fill="white" opacity=".2"/><circle cx="145" cy="32" r=".7" fill="white" opacity=".2"/></svg>
+            <div class="disc-art-credit">Dr. Ahmed Mater · Magnetism · ATHR Gallery</div>
+            <div class="disc-art-desc">How do millions of people move toward one centre?</div>
+          </div>
+          <div class="disc-card disc-card-light">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+              <div>
+                <div class="disc-art-label" style="color:var(--sage)">GEOMETRIC ART</div>
+                <div class="disc-tile-title">Draw a Star</div>
+                <div class="disc-tile-sub">Islamic geometry lesson</div>
+              </div>
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="10" y="10" width="28" height="28" stroke="#5a8a6a" stroke-width=".8" fill="none" opacity=".4"/><rect x="10" y="10" width="28" height="28" stroke="#5a8a6a" stroke-width=".8" fill="none" opacity=".4" transform="rotate(45 24 24)"/><polygon points="24,13 26.8,20.2 34,20.2 28.4,24.8 30.4,32 24,27.8 17.6,32 19.6,24.8 14,20.2 21.2,20.2" fill="rgba(90,138,106,.15)" stroke="#5a8a6a" stroke-width=".7"/><circle cx="24" cy="24" r="2" fill="#5a8a6a"/></svg>
+            </div>
+            <div class="disc-progress-row">
+              <div class="disc-prog-bar"><div class="disc-prog-fill" style="width:40%"></div></div>
+              <span class="disc-prog-label">Step 2 of 5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phone-lbl">Arts · Discovery</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide s-gtm">
+  <div class="slide-num">04 / 06</div>
+  <div class="tag" style="color:var(--sky);border-color:var(--sky)">Go-to-Market</div>
+  <h2 class="gtm-h2">Distribution before<br>paid acquisition.</h2>
+  <p class="gtm-sub">We go to where Muslim families already trust. Two anchor partnerships give us reach from day one.</p>
+  <div class="gtm-grid">
+    <div class="gtm-partner gtm-partner-1">
+      <div class="gtm-partner-top">
+        <div class="gtm-logo-box">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 6h8a2 2 0 0 1 2 2v13a1.5 1.5 0 0 0-1.5-1.5H4V6z" fill="#1c2e4a" opacity=".8"/><path d="M24 6h-8a2 2 0 0 0-2 2v13a1.5 1.5 0 0 1 1.5-1.5H24V6z" fill="#1c2e4a" opacity=".5"/><line x1="14" y1="8" x2="14" y2="21" stroke="white" stroke-width=".8" opacity=".4"/></svg>
+        </div>
+        <div>
+          <div class="gtm-partner-name">Yaqeen Institute</div>
+          <div class="gtm-partner-type">Content Distribution Partner</div>
+        </div>
+        <div class="gtm-reach-pill" style="background:#eff6ff;color:var(--sky);border-color:#bdd8f7">30M+ Reach</div>
+      </div>
+      <p class="gtm-partner-desc">Yaqeen Institute produces the most trusted Islamic research content in the English-speaking world. A co-branded content partnership — Yaqeen-verified learning modules inside Kidzlim — gives us instant credibility with Western Muslim families and access to their 30M+ monthly audience across social and email.</p>
+      <div class="gtm-tags">
+        <span class="gtm-tag">Scholar-backed content</span>
+        <span class="gtm-tag">US · UK · Canada</span>
+        <span class="gtm-tag">Co-branded modules</span>
+        <span class="gtm-tag">Email + social distribution</span>
+      </div>
+    </div>
+    <div class="gtm-partner gtm-partner-2">
+      <div class="gtm-partner-top">
+        <div class="gtm-logo-box" style="background:var(--sagelt)">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="6" y="12" width="16" height="12" rx="1" stroke="#5a8a6a" stroke-width="1.5" fill="none"/><path d="M4 14L14 6l10 8" stroke="#5a8a6a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="11" y="18" width="6" height="6" rx=".5" fill="#5a8a6a" opacity=".3"/><line x1="14" y1="18" x2="14" y2="24" stroke="#5a8a6a" stroke-width=".8"/></svg>
+        </div>
+        <div>
+          <div class="gtm-partner-name">Noon Academy & School Network</div>
+          <div class="gtm-partner-type">B2B Education Partner · Middle East First</div>
+        </div>
+        <div class="gtm-reach-pill" style="background:var(--sagelt);color:var(--sage);border-color:#c8e0cf">5M+ Students</div>
+      </div>
+      <p class="gtm-partner-desc">Noon Academy is the leading EdTech platform across the GCC with 5M+ students and partnerships with thousands of schools. A Kidzlim integration as an Islamic enrichment tool — distributed through Noon's school network across Saudi Arabia, UAE, Kuwait and Egypt — gives us B2B subscription revenue alongside direct-to-consumer from day one.</p>
+      <div class="gtm-tags">
+        <span class="gtm-tag" style="background:var(--sagelt);color:var(--sage);border-color:#c8e0cf">Saudi Arabia</span>
+        <span class="gtm-tag" style="background:var(--sagelt);color:var(--sage);border-color:#c8e0cf">UAE · Kuwait · Egypt</span>
+        <span class="gtm-tag" style="background:var(--sagelt);color:var(--sage);border-color:#c8e0cf">B2B school subscriptions</span>
+        <span class="gtm-tag" style="background:var(--sagelt);color:var(--sage);border-color:#c8e0cf">Islamic enrichment module</span>
+      </div>
+    </div>
+  </div>
+  <div class="gtm-channels">
+    <div class="gtm-channel-label">ACQUISITION FUNNEL</div>
+    <div class="gtm-channel-row">
+      <div class="gtm-channel">
+        <div class="gtm-ch-num" style="color:var(--sky)">01</div>
+        <div class="gtm-ch-name">Partner Distribution</div>
+        <div class="gtm-ch-desc">Yaqeen + Noon Academy as zero-cost acquisition at scale</div>
+      </div>
+      <div class="gtm-ch-arrow">→</div>
+      <div class="gtm-channel">
+        <div class="gtm-ch-num" style="color:var(--sage)">02</div>
+        <div class="gtm-ch-name">Community & Mosques</div>
+        <div class="gtm-ch-desc">Islamic schools, madrasas and masjid WhatsApp networks</div>
+      </div>
+      <div class="gtm-ch-arrow">→</div>
+      <div class="gtm-channel">
+        <div class="gtm-ch-num" style="color:var(--coral)">03</div>
+        <div class="gtm-ch-name">Influencer & Meta</div>
+        <div class="gtm-ch-desc">Muslim parenting creators + targeted paid social</div>
+      </div>
+      <div class="gtm-ch-arrow">→</div>
+      <div class="gtm-channel">
+        <div class="gtm-ch-num" style="color:var(--gold)">04</div>
+        <div class="gtm-ch-name">Word of Mouth</div>
+        <div class="gtm-ch-desc">Referral program — free month for every family referred</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide s4">
+  <div class="slide-num">05 / 06</div>
+  <div class="g2">
+    <div>
+      <div class="tag" style="color:var(--coral);border-color:var(--coral)">Market</div>
+      <h2>The most underserved audience in EdTech.</h2>
+      <div style="margin-bottom:28px;font-size:15px;color:var(--muted);line-height:1.8;max-width:380px;">1.8 billion Muslims. 185 million children. Not one AI-first platform built for them. This is not a niche — it is a category waiting to be defined.</div>
+      <div class="big-n" style="color:var(--coral)">$0</div>
+      <div class="big-l">Value of current AI Islamic edtech. The category doesn't exist yet.</div>
+      <div class="srow">
+        <div><div class="smi-v" style="color:var(--sage)">185M</div><div class="smi-l">Kids Age 5–14</div></div>
+        <div><div class="smi-v" style="color:var(--sky)">74M</div><div class="smi-l">Digitally Active</div></div>
+        <div><div class="smi-v" style="color:var(--gold)">440K</div><div class="smi-l">Target Yr 1</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="comp-title">Competitive Landscape</div>
+      <div class="comp-row hdr"><div>Platform</div><div>Reach</div><div>AI</div><div>Games</div></div>
+      <div class="comp-row"><div>Omar & Hana</div><div style="color:var(--muted);font-size:11px">12M YT · 7B views</div><div><span class="dot-n"></span></div><div><span class="dot-n"></span></div></div>
+      <div class="comp-row"><div>One4Kids / Zaky</div><div style="color:var(--muted);font-size:11px">1.5M · 1B views</div><div><span class="dot-n"></span></div><div><span class="dot-n"></span></div></div>
+      <div class="comp-row"><div>Durioo+</div><div style="color:var(--muted);font-size:11px">Niche streaming</div><div><span class="dot-n"></span></div><div><span class="dot-n"></span></div></div>
+      <div class="comp-row"><div>Ali Huda</div><div style="color:var(--muted);font-size:11px">Small base</div><div><span class="dot-n"></span></div><div><span class="dot-n"></span></div></div>
+      <div class="comp-row kz">
+        <div style="color:#c9a84c;font-weight:700">KIDZLIM</div>
+        <div style="color:rgba(250,249,246,.5);font-size:11px">1,340 signups</div>
+        <div><span class="dot-y"></span></div>
+        <div><span class="dot-y"></span></div>
+      </div>
+      <div class="comp-note">Every competitor is a passive content channel. None has built AI, games, or adaptive learning. <strong>Kidzlim has no direct competitor.</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide s5">
+  <div class="slide-num">06 / 06</div>
+  <div class="g2">
+    <div>
+      <div class="tag" style="color:var(--sky);border-color:var(--sky)">Investment</div>
+      <h2>Build the <em>Islamic EdTech</em> unicorn.</h2>
+      <p class="sub">Raising $1M to reach 440,000 subscribers in Year 1 and scale across 57 OIC countries. Shariah-compliant structures available.</p>
+      <div class="inv-list">
+        <div class="inv-row">
+          <div><div class="inv-lbl">Raising</div><div class="inv-val" style="color:var(--sky)">$1,000,000</div></div>
+          <div class="inv-note">3-year runway. GCC, SE Asia, UK and US.</div>
+        </div>
+        <div class="inv-row">
+          <div><div class="inv-lbl">Equity</div><div class="inv-val" style="color:var(--coral)">15% Stake</div></div>
+          <div class="inv-note">Founders retain 82%. High conviction.</div>
+        </div>
+        <div class="inv-row">
+          <div><div class="inv-lbl">Investor IRR</div><div class="inv-val" style="color:var(--gold)">15%+ p.a.</div></div>
+          <div class="inv-note">Break-even 14 months. Business IRR 45%+.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="tag" style="color:var(--muted);border-color:var(--borderdk)">Team</div>
+      <div class="team-list">
+        <div class="tc">
+          <div class="av" style="background:#eff6ff;color:var(--sky)">NM</div>
+          <div>
+            <div class="tc-name">Nazim Maroof</div>
+            <div class="tc-role">Founder & CEO</div>
+            <div class="tc-bio">18+ years in creative industries. Creator of Usman & Husna, inspired by his own children.</div>
+          </div>
+        </div>
+        <div class="tc">
+          <div class="av" style="background:#f3f0fa;color:var(--lilac)">AP</div>
+          <div>
+            <div class="tc-name">Asad Pervaiz</div>
+            <div class="tc-role">Co-Founder</div>
+            <div class="tc-bio">Strategic Actuary. Architect of Kidzlim's financial model and growth projections.</div>
+          </div>
+        </div>
+        <div class="tc gold-border">
+          <div class="av" style="background:#fdfaed;color:var(--gold)">RD</div>
+          <div>
+            <div class="tc-name">Rummana Dada</div>
+            <div class="tc-role">Investor & Board Member</div>
+            <div class="tc-bio">Managing Partner, Vitality Capital & Aurion Capital ($500M+ AUM). Shark Tank alum. Founded & exited Haute Elan. Deep GCC & MENA networks.</div>
+            <div class="vc-tag">◆ Vitality Capital · Aurion Capital ◆</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s5 foot" style="position:relative;">
+      <div class="foot-qt">"Little Muslims, Big Faith."</div>
+      <div class="foot-ct"><strong>Vitality Capital</strong>team@vitality.capital</div>
+      <div class="vc-studio-credit">A Vitality Capital Studio Build</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
