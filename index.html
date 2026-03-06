@@ -180,12 +180,6 @@ nav{background:var(--ink);position:sticky;top:0;z-index:400;border-bottom:1px so
 .qt blockquote{font-family:var(--serif);font-size:clamp(20px,4vw,34px);font-weight:300;font-style:italic;color:#fff;max-width:740px;margin:0 auto 14px;line-height:1.45;}
 .qt cite{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);font-style:normal;}
 
-/* SITE NAV FIXED */
-
-
-
-
-
 /* FOOTER */
 footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:32px 24px;}
 .fw{max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
@@ -252,18 +246,13 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 
 /* ===== MOBILE ===== */
 @media(max-width:767px){
-  /* === CORE === */
   body{overflow-x:hidden;}
   .w,.nw,.fw{padding-left:18px !important;padding-right:18px !important;}
   .sw,.so,.sd,.sb{padding:36px 0;}
   .hero{padding:36px 0 32px;}
-
-  /* === NAV === */
   .nr{display:none;}
   .nw{height:52px;}
   .nl{font-size:15px;}
-
-  /* === HERO === */
   .h1{font-size:clamp(40px,12vw,72px) !important;line-height:.93 !important;letter-spacing:-.02em !important;}
   .h2{font-size:clamp(28px,8vw,48px) !important;line-height:1.1 !important;}
   .hs{font-size:14px;line-height:1.75;margin-bottom:24px;}
@@ -271,22 +260,16 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   .hb{flex-direction:column;gap:10px;}
   .btn,.btnw{width:100% !important;text-align:center !important;display:block !important;box-sizing:border-box !important;}
   .btng{display:block;text-align:center;margin-top:6px;}
-  
-  /* === HERO STATS === */
   .hst{flex-direction:column;gap:0;margin-top:24px;}
   .hsi{flex:none !important;width:100% !important;border-right:none !important;margin-right:0 !important;padding:14px 0 !important;border-bottom:1px solid rgba(255,255,255,.08);}
   .hsi:last-child{border-bottom:none;padding-bottom:0;}
   .hv{font-size:32px;}
   .hl{font-size:9px;}
-
-  /* === SECTIONS === */
   .ticker{display:none;}
   .lbl{font-size:9px;letter-spacing:.18em;}
   .bp{font-size:14px;line-height:1.75;}
   .two{grid-template-columns:1fr !important;gap:24px !important;}
   .four{grid-template-columns:1fr 1fr !important;gap:10px !important;}
-
-  /* === FUND STRUCTURE === */
   #how-flow{grid-template-columns:1fr !important;gap:24px !important;}
   .flow{gap:0 !important;}
   .fs{gap:14px;padding:16px 0;border-bottom:1px solid var(--bdr);}
@@ -298,16 +281,10 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   .mech .mr{flex-direction:column;align-items:flex-start;gap:2px;padding:10px 12px;}
   .mech .mr .k{min-width:auto;font-size:11px;font-weight:500;color:#666;}
   .mech .mr .v{text-align:left;font-size:12px;}
-
-  /* === FOUNDING PARTNERS === */
   .fpg{grid-template-columns:1fr !important;}
   .fpb,.fp{font-size:13px;line-height:1.7;}
-
-  /* === WALL / SUCCESS STORIES === */
   .wall{grid-template-columns:1fr 1fr !important;gap:10px !important;}
   .wi{font-size:11px;padding:10px 12px;}
-
-  /* === QUOTES === */
   #quotes-grid{grid-template-columns:1fr !important;gap:12px !important;}
   .qc{padding:16px 14px 12px;}
   .qi{font-size:40px;}
@@ -315,8 +292,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   .qa{font-size:10px;}
   .qr{font-size:9px;}
   .qcopy{font-size:8px;padding:4px 8px;}
-
-  /* === SCHOLAR === */
   .scg{grid-template-columns:1fr !important;gap:24px !important;}
   .sn{font-size:20px;}
   .sbio{font-size:13px;line-height:1.8;}
@@ -325,37 +300,22 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   .pill{font-size:8px;padding:4px 9px;}
   .sq{font-size:18px;line-height:1.5;}
   .sa{font-size:10px;}
-
-  /* === THREE PATHS === */
   #three-paths{grid-template-columns:1fr !important;gap:14px !important;}
-
-  /* === DONATE FORMS === */
   .dw{grid-template-columns:1fr !important;gap:20px !important;}
   .amts{gap:6px;}
   .ab{flex:1;min-width:calc(50% - 5px);padding:10px 8px;font-size:11px;text-align:center;}
   .fid,.fim{font-size:13px;padding:10px 12px;width:100%;box-sizing:border-box;}
-
-  /* === CALC / WORKED EXAMPLE === */
   #calc-grid{grid-template-columns:1fr !important;}
-
-  /* === SHARE WIDGET === */
   #share-widget{grid-template-columns:1fr !important;}
   .copt{font-size:9px;padding:7px 10px;}
-
-  /* === FAQ === */
   .fq{font-size:14px;}
   .fa{font-size:13px;line-height:1.75;}
-
-  /* === FOOTER === */
   .flinks{flex-wrap:wrap;gap:8px;}
   .fl{font-size:9px;}
   .fn2{font-size:9px;}
-
-  /* === AG / STUDIO GRID === */
   .ag{grid-template-columns:1fr !important;gap:12px !important;}
   #copy-post-btn,#share-li,#share-tw{font-size:9px;padding:10px 8px;}
   #post-preview{font-size:13px;min-height:80px;}
-
 }
 
 @media(max-width:400px){
@@ -366,7 +326,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   .ab{min-width:100%;text-align:center;}
 }
 
-/* OVERFLOW SAFETY NET */
 .w *{max-width:100%;box-sizing:border-box;}
 table{width:100%;table-layout:fixed;}
 input,select,textarea{max-width:100%;box-sizing:border-box;}
@@ -377,7 +336,7 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
 .qc:hover{background:#f8fafc;}
 .qc:nth-child(3n){border-right:none;}
 .qt{font-family:var(--serif);font-size:17px;font-style:italic;font-weight:300;line-height:1.65;color:#111;flex:1;margin-bottom:18px;}
-.qt::before{content:'“';font-family:Georgia,serif;font-size:32px;color:rgba(46,109,163,.25);line-height:0;vertical-align:-12px;margin-right:2px;}
+.qt::before{content:'"';font-family:Georgia,serif;font-size:32px;color:rgba(46,109,163,.25);line-height:0;vertical-align:-12px;margin-right:2px;}
 .qf{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;padding-top:14px;border-top:1px solid #edf0f4;}
 .qa-wrap2{flex:1;min-width:0;}
 .qa{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -401,6 +360,31 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
 </style>
 </head>
 <body>
+
+<!-- PASSWORD GATE -->
+<div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:#08090E;display:flex;align-items:center;justify-content:center;padding:24px;">
+  <div style="width:100%;max-width:400px;">
+    <div style="text-align:center;margin-bottom:36px;">
+      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:42px;font-weight:300;color:#fff;letter-spacing:-.02em;line-height:1;">Alif</div>
+      <div style="font-size:9px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:rgba(91,157,212,.6);margin-top:8px;">Waqf · Permanent Endowment</div>
+    </div>
+    <div style="border:1px solid rgba(255,255,255,.08);padding:32px 28px;background:rgba(255,255,255,.02);">
+      <div style="font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:20px;text-align:center;">Private Access</div>
+      <div style="position:relative;margin-bottom:12px;">
+        <input id="pw-input" type="password" placeholder="Enter access password" autocomplete="current-password"
+          style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;font-family:'Outfit',sans-serif;font-size:14px;padding:13px 46px 13px 16px;width:100%;outline:none;border-radius:0;box-sizing:border-box;letter-spacing:.04em;"
+          onkeydown="if(event.key==='Enter')checkPw()">
+        <button onclick="togglePwVis()" id="pw-eye" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:rgba(255,255,255,.3);font-size:16px;padding:0;line-height:1;">👁</button>
+      </div>
+      <div id="pw-err" style="font-size:11px;color:#e05c5c;margin-bottom:10px;min-height:16px;text-align:center;display:none;">Incorrect password. Please try again.</div>
+      <button onclick="checkPw()" style="width:100%;background:#2E6DA3;color:#fff;font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:14px;border:none;cursor:pointer;transition:background .2s;">
+        Enter →
+      </button>
+    </div>
+    <div style="text-align:center;margin-top:20px;font-size:10px;color:rgba(255,255,255,.15);letter-spacing:.1em;">This site is for authorised parties only.</div>
+  </div>
+</div>
+<div id="pw-content" style="display:none;">
 
 <!-- TICKER -->
 <div class="ticker">
@@ -573,7 +557,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
     <h2 class="h2" style="margin-bottom:8px;">Words that <em>built empires.</em></h2>
     <p class="bp" style="margin-bottom:36px;">From the track to the boardroom — the conviction that drives champions is the same conviction that builds enduring institutions.</p>
     <div id="quotes-grid">
-      
       <div class="qc">
         <p class="qt">The secret of getting ahead is getting started.</p>
         <div class="qf">
@@ -678,20 +661,20 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         <p class="qt">Whoever does not thank people has not thanked Allah.</p>
         <div class="qf">
           <div class="qa-wrap2">
-            <span class="qa">Prophet Muhammad  ﷺ</span>
+            <span class="qa">Prophet Muhammad ﷺ</span>
             <span class="qr">Abu Dawud</span>
           </div>
-          <button class="qcopy" onclick="cpQ(this,'Whoever does not thank people has not thanked Allah. — Prophet Muhammad  ﷺ')">Copy</button>
+          <button class="qcopy" onclick="cpQ(this,'Whoever does not thank people has not thanked Allah. — Prophet Muhammad ﷺ')">Copy</button>
         </div>
       </div>
       <div class="qc">
         <p class="qt">Do not be people without minds of your own. Accustom yourselves to do good.</p>
         <div class="qf">
           <div class="qa-wrap2">
-            <span class="qa">Prophet Muhammad  ﷺ</span>
+            <span class="qa">Prophet Muhammad ﷺ</span>
             <span class="qr">Al-Tirmidhi</span>
           </div>
-          <button class="qcopy" onclick="cpQ(this,'Do not be people without minds of your own. Accustom yourselves to do good. — Prophet Muhammad  ﷺ')">Copy</button>
+          <button class="qcopy" onclick="cpQ(this,'Do not be people without minds of your own. Accustom yourselves to do good. — Prophet Muhammad ﷺ')">Copy</button>
         </div>
       </div>
     </div>
@@ -754,7 +737,7 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         <div style="border:1px solid var(--bln);background:var(--bdim);padding:18px 20px;">
           <div style="font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">Discuss LP Participation</div>
           <p style="font-size:13px;line-height:1.7;color:var(--muted);">The Waqf anchor commitment catalyses external LP capital — creating incentive alignment between private investors and the endowment. Both want the same thing: the best returns from the world's best deals.</p>
-          <a href="/cdn-cgi/l/email-protection#076e697162747347666b6e617269632964686a387472656d6264733a4b5727576675736e646e7766736e686927426976726e757e" style="display:inline-block;margin-top:14px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border-bottom:1px solid var(--bln);padding-bottom:2px;">Discuss LP participation →</a>
+          <a href="mailto:invest@alifund.com" style="display:inline-block;margin-top:14px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border-bottom:1px solid var(--bln);padding-bottom:2px;">Discuss LP participation →</a>
         </div>
       </div>
     </div>
@@ -768,9 +751,7 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
     <h2 class="h2 wt" style="margin-bottom:10px;">Give to the Waqf.<br>Or invest in the <em>fund.</em></h2>
     <p style="font-size:15px;color:rgba(255,255,255,.45);line-height:1.8;max-width:100%;margin-bottom:36px;">Two distinct paths. One shared mission — building a permanent engine of Islamic enterprise and endowment.</p>
 
-    <!-- PATH CARDS -->
     <div style="display:grid;grid-template-columns:1fr;gap:2px;margin-bottom:40px;" id="three-paths">
-      <!-- PATH 1 -->
       <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:28px 26px;border-top:3px solid var(--bl);">
         <div style="font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--bl);margin-bottom:12px;">Path 01 · Sadaqah Jariyah</div>
         <div style="font-family:var(--serif);font-size:26px;font-weight:300;color:#fff;margin-bottom:10px;">Donate to the <em style="font-style:italic;color:var(--bl);">Alif Waqf</em></div>
@@ -783,7 +764,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         </div>
         <a href="#donate-form" class="btn" style="display:inline-block;">Give to the Waqf →</a>
       </div>
-      <!-- PATH 3 -->
       <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);padding:28px 26px;border-top:3px solid rgba(255,255,255,.25);">
         <div style="font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px;">Path 02 · Traditional LP</div>
         <div style="font-family:var(--serif);font-size:26px;font-weight:300;color:#fff;margin-bottom:10px;">Invest as a <em style="font-style:italic;color:var(--bl);">traditional investor</em></div>
@@ -797,9 +777,7 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
       </div>
     </div>
 
-    <!-- FORMS SIDE BY SIDE -->
     <div class="dw">
-      <!-- WAQF DONATE FORM -->
       <div class="dbox" id="donate-form">
         <div class="dh">Donate to the <em>Waqf</em></div>
         <div class="ds">Permanent endowment. Direct transfer. No fees deducted.</div>
@@ -830,7 +808,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         <div class="fnote">Transferred directly to the Alif Waqf account under Shariah supervision by Sheikh Dr. Faid Mohammed Said. The principal can never be returned, withdrawn or spent on causes — it remains permanently deployed to generate returns.</div>
       </div>
 
-      <!-- FUND INVEST FORM -->
       <div class="pbox" id="invest-form" style="background:var(--ink2);border:1px solid rgba(255,255,255,.08);">
         <div style="font-family:var(--serif);font-size:clamp(20px,3.5vw,28px);font-weight:300;color:#fff;margin-bottom:8px;">Register Interest — <em style="font-style:italic;color:var(--bl);">Alif VC Fund</em></div>
         <p style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:20px;">Express your interest in LP participation in the Alif Venture Capital Fund. Our team will be in touch with the investor memorandum and term sheet.</p>
@@ -865,8 +842,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </div>
 
-
-
 <!-- SOCIAL SHARE -->
 <div class="sw">
   <div class="w">
@@ -874,7 +849,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
     <h2 class="h2" style="margin-bottom:8px;">Tell the world you're <em>building for the ummah.</em></h2>
     <p class="bp" style="max-width:560px;margin-bottom:32px;width:100%;">Generate your post and share it on your platform. Include <strong>#Alif</strong> in your message so your commitment is attributed to the Alif Venture Capital Fund.</p>
     <div style="display:grid;grid-template-columns:1fr;gap:20px;" id="share-widget">
-      <!-- BUILDER -->
       <div style="background:var(--off);border:1px solid var(--bdr);padding:28px 24px;">
         <div style="font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;">Build Your Post</div>
         <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
@@ -883,11 +857,11 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
             <div style="display:flex;flex-direction:column;gap:6px;" id="commit-opts">
               <button class="copt sel" onclick="setCopt(this,'waqf')" style="text-align:left;padding:10px 14px;">
                 <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px;">Option 1 · Donating to the Alif Waqf</div>
-                <div style="font-size:11px;font-weight:300;letter-spacing:0;text-transform:none;opacity:.75;">For donors giving to the permanent endowment. Waqf anchors the Alif Venture Capital Fund.</div>
+                <div style="font-size:11px;font-weight:300;letter-spacing:0;text-transform:none;opacity:.75;">For donors giving to the permanent endowment.</div>
               </button>
               <button class="copt" onclick="setCopt(this,'investor')" style="text-align:left;padding:10px 14px;">
                 <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px;">Option 2 · Investing in the Fund</div>
-                <div style="font-size:11px;font-weight:300;letter-spacing:0;text-transform:none;opacity:.75;">For LPs investing in the Alif Venture Capital Fund — via Waqf or as traditional investor.</div>
+                <div style="font-size:11px;font-weight:300;letter-spacing:0;text-transform:none;opacity:.75;">For LPs investing in the Alif Venture Capital Fund.</div>
               </button>
             </div>
           </div>
@@ -906,7 +880,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         </div>
         <button class="btn" style="width:100%;" onclick="buildPost()">Generate Post →</button>
       </div>
-      <!-- PREVIEW -->
       <div style="background:var(--ink2);border:1px solid rgba(255,255,255,.08);padding:28px 24px;display:flex;flex-direction:column;">
         <div style="font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--bl);margin-bottom:16px;">Your Post</div>
         <div id="post-preview" style="font-size:14px;line-height:1.85;color:rgba(255,255,255,.85);flex:1;min-height:120px;white-space:pre-wrap;font-family:var(--sans);"></div>
@@ -928,8 +901,8 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
       <div>
         <h2 class="h2">The fund anchors<br>a <em>venture studio</em><br>for the ummah.</h2>
         <p class="bp" style="margin-top:20px;">The Alif Venture Capital Fund doesn't just invest — it anchors the Alif Studio: a centralised resource engine that helps build, de-risk and scale ventures before they are ready for institutional capital.</p>
-        <p class="bp">The studio team provides <strong>shared technical infrastructure</strong> — engineering, product, design, legal, finance and go-to-market — to early-stage ventures that need more than capital to succeed. Gaps that would otherwise stall a promising founder are filled by the studio.</p>
-        <p class="bp">When a venture matures, the Alif Venture Capital Fund is the natural next step — providing growth capital to the companies it already knows, has helped build, and believes in. <strong>From studio to fund. From founder to portfolio. One continuous pipeline.</strong></p>
+        <p class="bp">The studio team provides <strong>shared technical infrastructure</strong> — engineering, product, design, legal, finance and go-to-market — to early-stage ventures that need more than capital to succeed.</p>
+        <p class="bp">When a venture matures, the Alif Venture Capital Fund is the natural next step. <strong>From studio to fund. From founder to portfolio. One continuous pipeline.</strong></p>
       </div>
       <div style="display:flex;flex-direction:column;gap:2px;">
         <div style="background:var(--off);border:1px solid var(--bdr);padding:22px 20px;border-left:3px solid var(--blue);">
@@ -965,7 +938,7 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         <div style="border:1px solid var(--bln);background:var(--bdim);padding:16px 20px;">
           <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:6px;">For Founders</div>
           <p style="font-size:12px;line-height:1.75;color:var(--muted);">If you are building something for the Muslim world — or in markets the world has underestimated — the Alif Studio wants to hear from you.</p>
-          <a href="/cdn-cgi/l/email-protection#dba8afaebfb2b49bbab7b2bdaeb5bff5b8b4b6" style="display:inline-block;margin-top:10px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border-bottom:1px solid var(--bln);padding-bottom:2px;">Apply to the Studio →</a>
+          <a href="mailto:studio@alifund.com" style="display:inline-block;margin-top:10px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border-bottom:1px solid var(--bln);padding-bottom:2px;">Apply to the Studio →</a>
         </div>
       </div>
     </div>
@@ -979,17 +952,17 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
     <h2 class="h2" style="margin-bottom:32px;">Your questions, <em>answered.</em></h2>
     <div class="faq">
       <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>Where does my money actually go?</strong><span class="fc">+</span></div><div class="fa">It depends on the path you choose.<br><br>
-<strong>If you donate to the Waqf:</strong> Your transfer goes directly to a registered charity — either <strong>Yaqeen Institute (US 501(c)(3))</strong> or <strong>Aman Foundation (UK registered charity)</strong> — both of which hold and govern the Alif Waqf endowment. No intermediaries. Tax-deductible in the US and UK respectively. The principal is permanently deployed and can never be returned or withdrawn.<br><br>
-<strong>If you invest as an LP:</strong> Your capital goes to the Alif Venture Capital Fund investment management company, which deploys into global startups, growth equity, real assets and FoF. On exits, <strong>25% of all carried interest flows permanently back to the Waqf</strong>. You receive your 65% pro-rata LP returns. The team receives 10%.</div></div>
-      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>How does the Waqf operate its fund mechanics?</strong><span class="fc">+</span></div><div class="fa">The Alif Venture Capital Fund is managed by a <strong>Wakala management company</strong> — the Shariah-compliant equivalent of a conventional GP. A 2% management fee plus 3% studio fee (5% total) covers operations and in-house portfolio support. Carry is split: <strong>25% flows permanently into the Waqf</strong> on every exit, 65% is returned to investors, and 10% goes to the active team. A 5-seat IC — with 2 permanent Waqf seats — governs every investment decision. Luxembourg-domiciled.</div></div>
+<strong>If you donate to the Waqf:</strong> Your transfer goes directly to a registered charity — either <strong>Yaqeen Institute (US 501(c)(3))</strong> or <strong>Aman Foundation (UK registered charity)</strong>. No intermediaries. Tax-deductible in the US and UK respectively.<br><br>
+<strong>If you invest as an LP:</strong> Your capital goes to the Alif Venture Capital Fund. On exits, <strong>25% of all carried interest flows permanently back to the Waqf</strong>. You receive your 65% pro-rata LP returns. The team receives 10%.</div></div>
+      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>How does the Waqf operate its fund mechanics?</strong><span class="fc">+</span></div><div class="fa">The Alif Venture Capital Fund is managed by a <strong>Wakala management company</strong>. A 2% management fee plus 3% studio fee (5% total) covers operations and in-house portfolio support. Carry is split: <strong>25% flows permanently into the Waqf</strong> on every exit, 65% is returned to investors, and 10% goes to the active team. A 5-seat IC — with 2 permanent Waqf seats — governs every investment decision. Luxembourg-domiciled.</div></div>
       <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>Can I ever get my contribution back?</strong><span class="fc">+</span></div><div class="fa">It depends on your path.<br><br>
-<strong>If you donate to the Waqf:</strong> No — and that is the point. A Waqf is a permanent, irrevocable endowment under Islamic law. Once you contribute, your principal can never be returned or dissolved — it stays permanently invested, generating returns that flow to causes indefinitely. This is Sadaqah Jariyah at its most powerful.<br><br>
-<strong>If you invest as an LP in the fund:</strong> Yes — you receive your capital back plus returns on exit. <strong>65% of all carry is returned to you</strong>, 25% flows permanently to the Waqf, and 10% goes to the active team. Your principal is at risk as with any fund investment — returns are never guaranteed. The fund management team's track record indicates <strong>5× returns or greater</strong> historically. Luxembourg-domiciled. Professionally managed.<br><br>
-<em style="color:var(--muted);font-size:12px;">Past performance is not a guarantee of future returns. This is not financial advice. Please consult your own advisors before making any investment decision.</em></div></div>
-      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>Is this Zakat-eligible?</strong><span class="fc">+</span></div><div class="fa">Zakat eligibility depends on the cause designation and is confirmed by Sheikh Dr. Faid Mohammed Said. Please contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f087918196b0919c9996859e94de939f9d">[email&#160;protected]</a> to discuss Zakat routing. We also accept Zakat as a separate designated contribution.</div></div>
-      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>What is the minimum contribution?</strong><span class="fc">+</span></div><div class="fa">There is no minimum. There is no minimum for general donations. For institutional LP participation, please contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acc5c2dac9dfd8eccdc0c5cad9c2c882cfc3c1">[email&#160;protected]</a> directly to discuss terms. Individual Waqf donations are welcome from $1,000 upwards.</div></div>
-      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>Who governs the Waqf?</strong><span class="fc">+</span></div><div class="fa">The Alif Waqf is governed by an independent board of trustees under the Shariah supervision of <strong>Sheikh Dr. Faid Mohammed Said</strong> — Secretary-General of the Commission of Fatwa &amp; Sharia Affairs. Founding institutional partners are the Aman Foundation (Pakistan) and Yaqeen Institute (USA).</div></div>
-      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>How is this connected to Alif Venture Capital Fund?</strong><span class="fc">+</span></div><div class="fa">The Waqf is the <strong>anchor LP of the fund</strong> — committing $10M at inception, targeting 30% of total Waqf AUM over time. Returns flow back into the permanent endowment. The fund is <strong>Luxembourg-domiciled</strong> (SICAV/RAIF structure) operating under a <strong>Wakala + Ju'alah framework</strong> — Shariah-clean and LP-familiar. Two investment paths: via the Waqf (100% of returns to endowment) or as a traditional LP (25% carry to Waqf, 65% to investor). The more the fund grows, the larger the Waqf grows.</div></div>
+<strong>If you donate to the Waqf:</strong> No — and that is the point. A Waqf is a permanent, irrevocable endowment under Islamic law. Once you contribute, your principal can never be returned or dissolved.<br><br>
+<strong>If you invest as an LP in the fund:</strong> Yes — you receive your capital back plus returns on exit. <strong>65% of all carry is returned to you</strong>, 25% flows permanently to the Waqf, and 10% goes to the active team.<br><br>
+<em style="color:var(--muted);font-size:12px;">Past performance is not a guarantee of future returns. This is not financial advice.</em></div></div>
+      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>Is this Zakat-eligible?</strong><span class="fc">+</span></div><div class="fa">Zakat eligibility depends on the cause designation and is confirmed by Sheikh Dr. Faid Mohammed Said. Please contact waqf@alifund.com to discuss Zakat routing.</div></div>
+      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>What is the minimum contribution?</strong><span class="fc">+</span></div><div class="fa">There is no minimum for general donations. For institutional LP participation, please contact invest@alifund.com directly to discuss terms. Individual Waqf donations are welcome from $1,000 upwards.</div></div>
+      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>Who governs the Waqf?</strong><span class="fc">+</span></div><div class="fa">The Alif Waqf is governed by an independent board of trustees under the Shariah supervision of <strong>Sheikh Dr. Faid Mohammed Said</strong> — Secretary-General of the Commission of Fatwa &amp; Sharia Affairs. Founding institutional partners are the Aman Foundation and Yaqeen Institute.</div></div>
+      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>How is this connected to Alif Venture Capital Fund?</strong><span class="fc">+</span></div><div class="fa">The Waqf is the <strong>anchor LP of the fund</strong> — committing $10M at inception, targeting 30% of total Waqf AUM over time. Returns flow back into the permanent endowment. The fund is <strong>Luxembourg-domiciled</strong> (SICAV/RAIF structure) operating under a <strong>Wakala + Ju'alah framework</strong>.</div></div>
       <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>What causes does the Waqf support?</strong><span class="fc">+</span></div><div class="fa">Current designated causes: <strong>Islamic education and scholarship</strong> (through Yaqeen Institute), <strong>Muslim community health infrastructure</strong> (through Aman Foundation), and <strong>Muslim entrepreneur and youth development</strong>.</div></div>
     </div>
   </div>
@@ -1012,8 +985,8 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         <h2 class="h2">Ready to plant<br><em>your seed?</em></h2>
         <p class="bp" style="margin-top:14px;">Donate, become a charity partner, explore Ramadan anchor status, or simply learn more.</p>
         <div style="display:flex;flex-direction:column;gap:10px;margin-top:22px;">
-          <div style="display:flex;gap:10px;align-items:center;font-size:13px;"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;">Waqf</span><a href="/cdn-cgi/l/email-protection#eb9c8a9a8dab8a87828d9e858fc5888486" style="color:var(--body);"><span class="__cf_email__" data-cfemail="e592849483a584898c83908b81cb868a88">[email&#160;protected]</span></a></div>
-          <div style="display:flex;gap:10px;align-items:center;font-size:13px;"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;">Fund</span><a href="/cdn-cgi/l/email-protection#cca5a2baa9bfb88cada0a5aab9a2a8e2afa3a1" style="color:var(--body);"><span class="__cf_email__" data-cfemail="4a23243c2f393e0a2b26232c3f242e64292527">[email&#160;protected]</span></a></div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:13px;"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;">Waqf</span><a href="mailto:waqf@alifund.com" style="color:var(--body);">waqf@alifund.com</a></div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:13px;"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;">Fund</span><a href="mailto:invest@alifund.com" style="color:var(--body);">invest@alifund.com</a></div>
           <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;padding-top:2px;">Shariah</span><span>Sheikh Dr. Faid Mohammed Said · London Central Mosque</span></div>
         </div>
       </div>
@@ -1042,9 +1015,49 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+</div><!-- /#pw-content -->
 
-// SHARE WIDGET
+<script>
+const PW_HASH = 'fe03798c30af1b7640da8bb3e0718ab9f89c38e3fe6f2ea3585a45b63d6192a8';
+const SESSION_KEY = 'alif_waqf_auth';
+
+async function hashString(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+async function checkPw() {
+  const val = document.getElementById('pw-input').value;
+  const err = document.getElementById('pw-err');
+  if (!val) { err.style.display='block'; err.textContent='Please enter the password.'; return; }
+  const hash = await hashString(val);
+  if (hash === PW_HASH) {
+    sessionStorage.setItem(SESSION_KEY, '1');
+    document.getElementById('pw-gate').style.display = 'none';
+    document.getElementById('pw-content').style.display = 'block';
+    err.style.display = 'none';
+  } else {
+    err.style.display = 'block';
+    err.textContent = 'Incorrect password. Please try again.';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+  }
+}
+
+function togglePwVis() {
+  const inp = document.getElementById('pw-input');
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+}
+
+(function() {
+  if (sessionStorage.getItem(SESSION_KEY) === '1') {
+    document.getElementById('pw-gate').style.display = 'none';
+    document.getElementById('pw-content').style.display = 'block';
+  }
+})();
+</script>
+
+<script>
 var _commit = 'waqf';
 var _tone = 'linkedin';
 function setCopt(el,val){
@@ -1065,9 +1078,9 @@ function buildPost(){
       instagram: '🌱 ' + n + ' am donating to the Alif Waqf.\n\nA permanent Islamic endowment anchored by the Alif Venture Capital Fund, Yaqeen Institute and Aman Foundation.\n\nEvery contribution is permanently invested. The principal never leaves. Only the returns flow out — to education, health and Muslim communities around the world.\n\nThis is Sadaqah Jariyah at scale. A seed that grows forever. 🤍\n\n#Alif #AlifWaqf #SadaqahJariyah #IslamicFinance #Waqf #MuslimEntrepreneurs #HalalInvesting'
     },
     investor: {
-      linkedin: n + ' am registering interest to invest in the Alif Venture Capital Fund — the world\'s first Islamic VC fund anchored by Yaqeen Institute and Aman Foundation, domiciled in Luxembourg.\n\nThe fund invests in the world\'s best founders. 25% of all carry flows permanently into the Alif Waqf — Sadaqah Jariyah built into every exit, every return, every cycle. Full commercial returns with permanent Islamic impact.\n\nThis is what it looks like when the Muslim ummah builds at the highest level.\n\n#Alif #AlifVentureCapitalFund #IslamicVC #IslamicFinance #VentureCapital #MuslimEntrepreneurs #Waqf',
+      linkedin: n + ' am registering interest to invest in the Alif Venture Capital Fund — the world\'s first Islamic VC fund anchored by Yaqeen Institute and Aman Foundation, domiciled in Luxembourg.\n\nThe fund invests in the world\'s best founders. 25% of all carry flows permanently into the Alif Waqf — Sadaqah Jariyah built into every exit, every return, every cycle.\n\nThis is what it looks like when the Muslim ummah builds at the highest level.\n\n#Alif #AlifVentureCapitalFund #IslamicVC #IslamicFinance #VentureCapital #MuslimEntrepreneurs #Waqf',
       twitter: n + ' am investing in the Alif Venture Capital Fund. First Islamic VC anchored by @YaqeenInstitute + @AmanFoundation. 25% carry → Waqf permanently. Luxembourg-domiciled. Building for the ummah at scale. #Alif #AlifVC #IslamicVC',
-      instagram: '📈 ' + n + ' am investing in the Alif Venture Capital Fund.\n\nThe world\'s first Islamic VC fund anchored by Yaqeen Institute and Aman Foundation.\n\n→ Best global founders\n→ 25% of carry flows permanently to the Alif Waqf\n→ Luxembourg-domiciled\n→ Every exit is also Sadaqah Jariyah\n\nFull commercial returns. Permanent Islamic impact built in. This is the vehicle. 🤍\n\n#Alif #AlifVentureCapitalFund #IslamicVC #VentureCapital #IslamicFinance #MuslimEntrepreneurs #Waqf'
+      instagram: '📈 ' + n + ' am investing in the Alif Venture Capital Fund.\n\nThe world\'s first Islamic VC fund anchored by Yaqeen Institute and Aman Foundation.\n\n→ Best global founders\n→ 25% of carry flows permanently to the Alif Waqf\n→ Luxembourg-domiciled\n→ Every exit is also Sadaqah Jariyah\n\nFull commercial returns. Permanent Islamic impact built in. 🤍\n\n#Alif #AlifVentureCapitalFund #IslamicVC #VentureCapital #IslamicFinance #MuslimEntrepreneurs #Waqf'
     }
   };
   var p = posts[_commit] ? posts[_commit][_tone] : posts.waqf[_tone];
@@ -1089,14 +1102,11 @@ function shareTwitter(){
   window.open('https://twitter.com/intent/tweet?text='+txt,'_blank');
 }
 window.addEventListener('load', buildPost);
-
 function cpQ(btn,txt){
   navigator.clipboard.writeText(txt).then(function(){
     btn.textContent='Copied ✓';btn.classList.add('copied');
     setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied');},2000);
-  }).catch(function(){
-    btn.textContent='Copy';
-  });
+  }).catch(function(){btn.textContent='Copy';});
 }
 function togFAQ(el){var i=el.parentElement,w=i.classList.contains('open');document.querySelectorAll('.fi2').forEach(function(x){x.classList.remove('open');});if(!w)i.classList.add('open');}
 function togPO(el){var c=el.querySelector('.pck');c.classList.toggle('on');c.innerHTML=c.classList.contains('on')?'<svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>':'';}
