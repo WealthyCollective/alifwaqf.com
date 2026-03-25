@@ -4,9 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alif Waqf — Permanent Islamic Endowment</title>
-<link rel="icon" type="image/jpeg" href="https://i.postimg.cc/ydKxxH8X/Alif-Fund-01.jpg">
+<link rel="icon" id="favicon" type="image/jpeg" href="https://i.postimg.cc/ydKxxH8X/Alif-Fund-01.jpg">
 <link rel="shortcut icon" type="image/jpeg" href="https://i.postimg.cc/ydKxxH8X/Alif-Fund-01.jpg">
 <link rel="apple-touch-icon" href="https://i.postimg.cc/ydKxxH8X/Alif-Fund-01.jpg">
+<script>
+(function(){
+  var img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.onload = function(){
+    try {
+      var c = document.createElement('canvas');
+      c.width = 64; c.height = 64;
+      var ctx = c.getContext('2d');
+      ctx.drawImage(img, 0, 0, 64, 64);
+      var dataUrl = c.toDataURL('image/png');
+      var link = document.getElementById('favicon');
+      if(link){ link.type = 'image/png'; link.href = dataUrl; }
+    } catch(e){}
+  };
+  img.onerror = function(){
+    // Fallback: draw branded SVG favicon
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="%230D1020"/><text x="50%25" y="54%25" dominant-baseline="middle" text-anchor="middle" font-family="Georgia,serif" font-size="38" font-style="italic" fill="%235B9DD4">A</text></svg>';
+    var link = document.getElementById('favicon');
+    if(link){ link.type = 'image/svg+xml'; link.href = 'data:image/svg+xml,' + svg; }
+  };
+  img.src = 'https://i.postimg.cc/ydKxxH8X/Alif-Fund-01.jpg?' + Date.now();
+})();
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--blue:#2E6DA3;--bm:#3A7EBC;--bl:#5B9DD4;--bdim:rgba(46,109,163,0.07);--bln:rgba(46,109,163,0.18);--ink:#08090E;--ink2:#0D1020;--body:#0A0A0A;--muted:#2A2A2A;--off:#F4F7FA;--bdr:rgba(0,0,0,0.09);--serif:'Cormorant Garamond',serif;--sans:'Outfit',sans-serif;}
@@ -737,7 +761,7 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         <div style="border:1px solid var(--bln);background:var(--bdim);padding:18px 20px;">
           <div style="font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">Discuss LP Participation</div>
           <p style="font-size:13px;line-height:1.7;color:var(--muted);">The Waqf anchor commitment catalyses external LP capital — creating incentive alignment between private investors and the endowment. Both want the same thing: the best returns from the world's best deals.</p>
-          <a href="mailto:hello@alifund.co" style="display:inline-block;margin-top:14px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border-bottom:1px solid var(--bln);padding-bottom:2px;">Discuss LP participation →</a>
+          <a href="/cdn-cgi/l/email-protection#1a727f7676755a7b76737c6f747e347975" style="display:inline-block;margin-top:14px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border-bottom:1px solid var(--bln);padding-bottom:2px;">Discuss LP participation →</a>
         </div>
       </div>
     </div>
@@ -938,7 +962,7 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         <div style="border:1px solid var(--bln);background:var(--bdim);padding:16px 20px;">
           <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:6px;">For Founders</div>
           <p style="font-size:12px;line-height:1.75;color:var(--muted);">If you are building something for the Muslim world — or in markets the world has underestimated — the Alif Studio wants to hear from you.</p>
-          <a href="mailto:hello@alifund.co" style="display:inline-block;margin-top:10px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border-bottom:1px solid var(--bln);padding-bottom:2px;">Apply to the Studio →</a>
+          <a href="/cdn-cgi/l/email-protection#c1a9a4adadae81a0ada8a7b4afa5efa2ae" style="display:inline-block;margin-top:10px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border-bottom:1px solid var(--bln);padding-bottom:2px;">Apply to the Studio →</a>
         </div>
       </div>
     </div>
@@ -959,8 +983,8 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
 <strong>If you donate to the Waqf:</strong> No — and that is the point. A Waqf is a permanent, irrevocable endowment under Islamic law. Once you contribute, your principal can never be returned or dissolved.<br><br>
 <strong>If you invest as an LP in the fund:</strong> Yes — you receive your capital back plus returns on exit. <strong>65% of all carry is returned to you</strong>, 25% flows permanently to the Waqf, and 10% goes to the active team.<br><br>
 <em style="color:var(--muted);font-size:12px;">Past performance is not a guarantee of future returns. This is not financial advice.</em></div></div>
-      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>Is this Zakat-eligible?</strong><span class="fc">+</span></div><div class="fa">Zakat eligibility depends on the cause designation and is confirmed by Sheikh Dr. Faid Mohammed Said. Please contact hello@alifund.co to discuss Zakat routing.</div></div>
-      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>What is the minimum contribution?</strong><span class="fc">+</span></div><div class="fa">There is no minimum for general donations. For institutional LP participation, please contact hello@alifund.co directly to discuss terms. Individual Waqf donations are welcome from $1,000 upwards.</div></div>
+      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>Is this Zakat-eligible?</strong><span class="fc">+</span></div><div class="fa">Zakat eligibility depends on the cause designation and is confirmed by Sheikh Dr. Faid Mohammed Said. Please contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d8b0bdb4b4b798b9b4b1beadb6bcf6bbb7">[email&#160;protected]</a> to discuss Zakat routing.</div></div>
+      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>What is the minimum contribution?</strong><span class="fc">+</span></div><div class="fa">There is no minimum for general donations. For institutional LP participation, please contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="264e434a4a4966474a4f40534842084549">[email&#160;protected]</a> directly to discuss terms. Individual Waqf donations are welcome from $1,000 upwards.</div></div>
       <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>Who governs the Waqf?</strong><span class="fc">+</span></div><div class="fa">The Alif Waqf is governed by an independent board of trustees under the Shariah supervision of <strong>Sheikh Dr. Faid Mohammed Said</strong> — Secretary-General of the Commission of Fatwa &amp; Sharia Affairs. Founding institutional partners are the Aman Foundation and Yaqeen Institute.</div></div>
       <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>How is this connected to Alif Venture Capital Fund?</strong><span class="fc">+</span></div><div class="fa">The Waqf is the <strong>anchor LP of the fund</strong> — committing $10M at inception, targeting 30% of total Waqf AUM over time. Returns flow back into the permanent endowment. The fund is <strong>Luxembourg-domiciled</strong> (SICAV/RAIF structure) operating under a <strong>Wakala + Ju'alah framework</strong>.</div></div>
       <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>What causes does the Waqf support?</strong><span class="fc">+</span></div><div class="fa">Current designated causes: <strong>Islamic education and scholarship</strong> (through Yaqeen Institute), <strong>Muslim community health infrastructure</strong> (through Aman Foundation), and <strong>Muslim entrepreneur and youth development</strong>.</div></div>
@@ -985,8 +1009,8 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         <h2 class="h2">Ready to plant<br><em>your seed?</em></h2>
         <p class="bp" style="margin-top:14px;">Donate, become a charity partner, explore Ramadan anchor status, or simply learn more.</p>
         <div style="display:flex;flex-direction:column;gap:10px;margin-top:22px;">
-          <div style="display:flex;gap:10px;align-items:center;font-size:13px;"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;">Waqf</span><a href="mailto:hello@alifund.co" style="color:var(--body);">hello@alifund.co</a></div>
-          <div style="display:flex;gap:10px;align-items:center;font-size:13px;"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;">Fund</span><a href="mailto:hello@alifund.co" style="color:var(--body);">hello@alifund.co</a></div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:13px;"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;">Waqf</span><a href="/cdn-cgi/l/email-protection#d0b8b5bcbcbf90b1bcb9b6a5beb4feb3bf" style="color:var(--body);"><span class="__cf_email__" data-cfemail="99f1fcf5f5f6d9f8f5f0ffecf7fdb7faf6">[email&#160;protected]</span></a></div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:13px;"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;">Fund</span><a href="/cdn-cgi/l/email-protection#b8d0ddd4d4d7f8d9d4d1decdd6dc96dbd7" style="color:var(--body);"><span class="__cf_email__" data-cfemail="18707d747477587974717e6d767c367b77">[email&#160;protected]</span></a></div>
           <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;padding-top:2px;">Shariah</span><span>Sheikh Dr. Faid Mohammed Said · London Central Mosque</span></div>
         </div>
       </div>
@@ -1017,7 +1041,7 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
 
 </div><!-- /#pw-content -->
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const PW_HASH = 'fe03798c30af1b7640da8bb3e0718ab9f89c38e3fe6f2ea3585a45b63d6192a8';
 const SESSION_KEY = 'alif_waqf_auth';
 
@@ -1156,20 +1180,4 @@ function submitInvestForm(){
 
 function submitContactForm(){
   var name = document.getElementById('ct-name').value || 'Not provided';
-  var email = document.getElementById('ct-email').value || 'Not provided';
-  var topic = document.getElementById('ct-topic').value || 'General enquiry';
-  var msg = document.getElementById('ct-msg').value || '';
-  var subject = encodeURIComponent('Alif Waqf Enquiry — ' + topic + ' (' + name + ')');
-  var body = encodeURIComponent(
-    'ALIF WAQF — CONTACT ENQUIRY\n' +
-    '==============================\n\n' +
-    'Name: ' + name + '\n' +
-    'Email: ' + email + '\n' +
-    'Topic: ' + topic + '\n\n' +
-    'Message:\n' + msg + '\n\nجزاك الله خيرًا'
-  );
-  window.location.href = 'mailto:hello@alifund.co?subject=' + subject + '&body=' + body;
-}
-</script>
-</body>
-</html>
+  var email
