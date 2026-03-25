@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alif Waqf — Permanent Islamic Endowment</title>
+<link rel="icon" type="image/jpeg" href="https://i.postimg.cc/ydKxxH8X/Alif-Fund-01.jpg">
+<link rel="shortcut icon" type="image/jpeg" href="https://i.postimg.cc/ydKxxH8X/Alif-Fund-01.jpg">
+<link rel="apple-touch-icon" href="https://i.postimg.cc/ydKxxH8X/Alif-Fund-01.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--blue:#2E6DA3;--bm:#3A7EBC;--bl:#5B9DD4;--bdim:rgba(46,109,163,0.07);--bln:rgba(46,109,163,0.18);--ink:#08090E;--ink2:#0D1020;--body:#0A0A0A;--muted:#2A2A2A;--off:#F4F7FA;--bdr:rgba(0,0,0,0.09);--serif:'Cormorant Garamond',serif;--sans:'Outfit',sans-serif;}
@@ -786,37 +789,37 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
           <button class="ab" onclick="selAmt(this,'$100,000')">$100K ✦</button>
         </div>
         <input class="fi" id="cam" type="text" placeholder="Or enter custom amount (USD)">
-        <input class="fi" type="text" placeholder="Your full name">
-        <input class="fi" type="email" placeholder="Email address">
-        <input class="fi" type="text" placeholder="Organisation (optional)">
-        <select class="fid">
+        <input class="fi" id="waqf-name" type="text" placeholder="Your full name">
+        <input class="fi" id="waqf-email" type="email" placeholder="Email address">
+        <input class="fi" id="waqf-org" type="text" placeholder="Organisation (optional)">
+        <select class="fid" id="waqf-dest">
           <option value="" disabled selected>Charity destination</option>
           <option>Yaqeen Institute — US 501(c)(3) · US tax deductible</option>
           <option>Aman Foundation — UK registered charity · Gift Aid eligible</option>
         </select>
-        <select class="fid">
+        <select class="fid" id="waqf-purpose">
           <option value="" disabled selected>Purpose</option>
           <option>Individual Sadaqah Jariyah</option>
           <option>In memory of a loved one</option>
           <option>Institutional Waqf Gift</option>
           <option>Zakat Designation</option>
         </select>
-        <button class="btn" style="width:100%;padding:13px;" onclick="alert('Thank you. Wire transfer instructions will be sent to your email within 24 hours.\n\nجزاك الله خيرًا')">Request Transfer Details →</button>
+        <button class="btn" style="width:100%;padding:13px;" onclick="submitWaqfForm()">Request Transfer Details →</button>
         <div class="fnote">Transferred directly to the Alif Waqf account under Shariah supervision by Sheikh Dr. Faid Mohammed Said. The principal can never be returned, withdrawn or spent on causes — it remains permanently deployed to generate returns.</div>
       </div>
 
       <div class="pbox" id="invest-form" style="background:var(--ink2);border:1px solid rgba(255,255,255,.08);">
         <div style="font-family:var(--serif);font-size:clamp(20px,3.5vw,28px);font-weight:300;color:#fff;margin-bottom:8px;">Register Interest — <em style="font-style:italic;color:var(--bl);">Alif VC Fund</em></div>
         <p style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:20px;">Express your interest in LP participation in the Alif Venture Capital Fund. Our team will be in touch with the investor memorandum and term sheet.</p>
-        <input class="fi" type="text" placeholder="Your full name">
-        <input class="fi" type="email" placeholder="Email address">
-        <input class="fi" type="text" placeholder="Organisation / Fund name">
-        <input class="fi" type="text" placeholder="Indicative commitment size (USD)">
-        <select class="fid" style="margin-bottom:9px;">
+        <input class="fi" id="inv-name" type="text" placeholder="Your full name">
+        <input class="fi" id="inv-email" type="email" placeholder="Email address">
+        <input class="fi" id="inv-org" type="text" placeholder="Organisation / Fund name">
+        <input class="fi" id="inv-size" type="text" placeholder="Indicative commitment size (USD)">
+        <select class="fid" id="inv-path" style="margin-bottom:9px;">
           <option value="" disabled selected>Investment path</option>
           <option>Traditional LP (65% to me · 25% carry to Waqf)</option>
         </select>
-        <select class="fid">
+        <select class="fid" id="inv-type">
           <option value="" disabled selected>Investor type</option>
           <option>Family Office</option>
           <option>Institutional LP</option>
@@ -825,14 +828,14 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
           <option>Sovereign Wealth Fund</option>
           <option>Corporate</option>
         </select>
-        <select class="fid">
+        <select class="fid" id="inv-interest">
           <option value="" disabled selected>Primary interest</option>
           <option>VC / Growth Equity returns</option>
           <option>Shariah-compliant vehicle</option>
           <option>Waqf impact alignment</option>
           <option>All of the above</option>
         </select>
-        <button class="btn" style="width:100%;padding:13px;background:var(--blue);" onclick="alert('Thank you. Our team will be in touch within 48 hours with the investor memorandum.\n\nجزاك الله خيرًا')">Register My Interest →</button>
+        <button class="btn" style="width:100%;padding:13px;background:var(--blue);" onclick="submitInvestForm()">Register My Interest →</button>
         <div class="fnote">By submitting you agree to receive investor materials from the Alif Venture Capital Fund. This is not a commitment to invest. Full terms in the fund memorandum.</div>
       </div>
     </div>
@@ -988,11 +991,11 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:9px;">
-        <input class="fil" type="text" placeholder="Your name">
-        <input class="fil" type="email" placeholder="Email address">
-        <select class="fsl"><option value="" disabled selected>I'd like to…</option><option>Donate to the Waqf</option><option>Become a charity partner</option><option>Join Ramadan anchor</option><option>Learn more</option></select>
-        <textarea class="fil" style="min-height:80px;resize:vertical;" placeholder="Brief message (optional)"></textarea>
-        <button class="btn" style="width:100%;padding:14px;" onclick="alert('Thank you. The Alif Waqf team will be in touch within 24 hours.\n\nجزاك الله خيرًا')">Send →</button>
+        <input class="fil" id="ct-name" type="text" placeholder="Your name">
+        <input class="fil" id="ct-email" type="email" placeholder="Email address">
+        <select class="fsl" id="ct-topic"><option value="" disabled selected>I'd like to…</option><option>Donate to the Waqf</option><option>Become a charity partner</option><option>Join Ramadan anchor</option><option>Learn more</option></select>
+        <textarea class="fil" id="ct-msg" style="min-height:80px;resize:vertical;" placeholder="Brief message (optional)"></textarea>
+        <button class="btn" style="width:100%;padding:14px;" onclick="submitContactForm()">Send →</button>
       </div>
     </div>
   </div>
@@ -1104,6 +1107,69 @@ function cpQ(btn,txt){
 function togFAQ(el){var i=el.parentElement,w=i.classList.contains('open');document.querySelectorAll('.fi2').forEach(function(x){x.classList.remove('open');});if(!w)i.classList.add('open');}
 function togPO(el){var c=el.querySelector('.pck');c.classList.toggle('on');c.innerHTML=c.classList.contains('on')?'<svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>':'';}
 function selAmt(b,v){document.querySelectorAll('.ab').forEach(function(x){x.classList.remove('sel');});b.classList.add('sel');document.getElementById('cam').value=v;}
+
+function submitWaqfForm(){
+  var amt = document.getElementById('cam').value || 'Not specified';
+  var name = document.getElementById('waqf-name').value || 'Not provided';
+  var email = document.getElementById('waqf-email').value || 'Not provided';
+  var org = document.getElementById('waqf-org').value || 'N/A';
+  var dest = document.getElementById('waqf-dest').value || 'Not selected';
+  var purpose = document.getElementById('waqf-purpose').value || 'Not selected';
+  var subject = encodeURIComponent('Alif Waqf — Donation Enquiry: ' + name);
+  var body = encodeURIComponent(
+    'ALIF WAQF — DONATION ENQUIRY\n' +
+    '==============================\n\n' +
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    'Organisation: ' + org + '\n' +
+    'Amount: ' + amt + '\n' +
+    'Destination: ' + dest + '\n' +
+    'Purpose: ' + purpose + '\n\n' +
+    'Please send wire transfer instructions.\n\nجزاك الله خيرًا'
+  );
+  window.location.href = 'mailto:hello@alifund.co?subject=' + subject + '&body=' + body;
+}
+
+function submitInvestForm(){
+  var name = document.getElementById('inv-name').value || 'Not provided';
+  var email = document.getElementById('inv-email').value || 'Not provided';
+  var org = document.getElementById('inv-org').value || 'N/A';
+  var size = document.getElementById('inv-size').value || 'Not specified';
+  var path = document.getElementById('inv-path').value || 'Not selected';
+  var type = document.getElementById('inv-type').value || 'Not selected';
+  var interest = document.getElementById('inv-interest').value || 'Not selected';
+  var subject = encodeURIComponent('Alif VC Fund — LP Interest: ' + name);
+  var body = encodeURIComponent(
+    'ALIF VENTURE CAPITAL FUND — LP INTEREST\n' +
+    '==========================================\n\n' +
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    'Organisation: ' + org + '\n' +
+    'Indicative Commitment: ' + size + '\n' +
+    'Investment Path: ' + path + '\n' +
+    'Investor Type: ' + type + '\n' +
+    'Primary Interest: ' + interest + '\n\n' +
+    'Please send the investor memorandum and term sheet.\n\nجزاك الله خيرًا'
+  );
+  window.location.href = 'mailto:hello@alifund.co?subject=' + subject + '&body=' + body;
+}
+
+function submitContactForm(){
+  var name = document.getElementById('ct-name').value || 'Not provided';
+  var email = document.getElementById('ct-email').value || 'Not provided';
+  var topic = document.getElementById('ct-topic').value || 'General enquiry';
+  var msg = document.getElementById('ct-msg').value || '';
+  var subject = encodeURIComponent('Alif Waqf Enquiry — ' + topic + ' (' + name + ')');
+  var body = encodeURIComponent(
+    'ALIF WAQF — CONTACT ENQUIRY\n' +
+    '==============================\n\n' +
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    'Topic: ' + topic + '\n\n' +
+    'Message:\n' + msg + '\n\nجزاك الله خيرًا'
+  );
+  window.location.href = 'mailto:hello@alifund.co?subject=' + subject + '&body=' + body;
+}
 </script>
 </body>
 </html>
