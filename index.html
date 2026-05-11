@@ -23,7 +23,6 @@
     } catch(e){}
   };
   img.onerror = function(){
-    // Fallback: draw branded SVG favicon
     var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="%230D1020"/><text x="50%25" y="54%25" dominant-baseline="middle" text-anchor="middle" font-family="Georgia,serif" font-size="38" font-style="italic" fill="%235B9DD4">A</text></svg>';
     var link = document.getElementById('favicon');
     if(link){ link.type = 'image/svg+xml'; link.href = 'data:image/svg+xml,' + svg; }
@@ -40,14 +39,12 @@ body{background:#fff;color:var(--body);font-family:var(--sans);font-weight:300;o
 a{text-decoration:none;} button{font-family:var(--sans);cursor:pointer;border:none;}
 img{display:block;max-width:100%;}
 
-/* TICKER */
 .ticker{background:var(--ink);height:36px;overflow:hidden;display:flex;align-items:center;}
 .tt{display:flex;white-space:nowrap;animation:tick 28s linear infinite;}
 .ti{font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.6);padding:0 28px;display:flex;align-items:center;gap:10px;}
 .ti b{color:#fff;font-weight:600;} .dot{width:3px;height:3px;background:var(--bl);border-radius:50%;flex-shrink:0;}
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* NAV */
 nav{background:var(--ink);position:sticky;top:0;z-index:400;border-bottom:1px solid rgba(255,255,255,.06);}
 .nw{max-width:1320px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;}
 .nb{display:flex;align-items:center;gap:12px;}
@@ -60,14 +57,12 @@ nav{background:var(--ink);position:sticky;top:0;z-index:400;border-bottom:1px so
 .na.cta{background:var(--blue);color:#fff;border-color:var(--blue);}
 .na.cta:hover{background:var(--bm);}
 
-/* LAYOUT */
 .sw{background:#fff;padding:64px 0;}
 .so{background:var(--off);padding:64px 0;}
 .sd{background:var(--ink2);padding:64px 0;}
 .sb{background:var(--blue);padding:48px 0;}
 .w{max-width:1320px;margin:0 auto;padding:0 24px;}
 
-/* HERO */
 .hero{background:var(--ink);padding:64px 0 52px;position:relative;overflow:hidden;}
 .hero .w{position:relative;z-index:1;}
 .hk{font-size:10px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--bl);display:flex;align-items:center;gap:12px;margin-bottom:20px;}
@@ -88,7 +83,6 @@ nav{background:var(--ink);position:sticky;top:0;z-index:400;border-bottom:1px so
 .hv{font-family:var(--serif);font-size:34px;font-weight:300;color:#fff;}
 .hl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:5px;font-weight:400;}
 
-/* TYPOGRAPHY */
 .lbl{font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:10px;margin-bottom:24px;}
 .lbl::before{content:'';width:16px;height:1px;background:var(--blue);}
 .lbl.lt{color:var(--bl);}  .lbl.lt::before{background:var(--bl);}
@@ -99,18 +93,15 @@ nav{background:var(--ink);position:sticky;top:0;z-index:400;border-bottom:1px so
 .bp strong{color:var(--body);font-weight:500;}
 .bp.wt{color:rgba(255,255,255,.5);} .bp.wt strong{color:#fff;}
 
-/* GRID */
 .two{display:grid;grid-template-columns:1fr;gap:40px;}
 .four{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bdr);border:1px solid var(--bdr);}
 
-/* WAQF BOXES */
 .wb{background:#fff;border:1px solid var(--bdr);padding:24px 20px;border-bottom:2px solid transparent;transition:all .2s;}
 .wb:hover{border-color:var(--bln);border-bottom-color:var(--blue);background:var(--bdim);}
 .wbn{font-family:var(--serif);font-size:36px;font-weight:300;color:rgba(46,109,163,.45);line-height:1;margin-bottom:8px;}
 .wbt{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--body);margin-bottom:6px;}
 .wbd{font-size:12px;line-height:1.7;color:#111;}
 
-/* ANCHOR GP CARDS */
 .ag{display:grid;grid-template-columns:1fr;gap:1px;background:var(--bdr);border:1px solid var(--bdr);margin-top:32px;}
 .ac{background:#fff;padding:24px 20px;border-left:2px solid transparent;transition:all .2s;}
 .ac:hover{background:var(--bdim);border-left-color:var(--blue);}
@@ -120,14 +111,12 @@ nav{background:var(--ink);position:sticky;top:0;z-index:400;border-bottom:1px so
 .acd{font-size:12px;line-height:1.65;color:var(--muted);}
 .act{display:inline-block;margin-top:10px;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border:1px solid var(--bln);padding:4px 12px;}
 
-/* FOUNDING PARTNERS */
 .fpg{display:grid;grid-template-columns:1fr;gap:18px;margin-top:30px;}
 .fp{border:1px solid var(--bdr);background:#fff;padding:28px 24px;border-left:3px solid var(--blue);}
 .fpt{font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
 .fpn{font-family:var(--serif);font-size:24px;font-weight:400;color:var(--body);margin-bottom:12px;}
 .fpb{font-size:13px;line-height:1.8;color:#111;margin-bottom:12px;}
 
-/* WALL */
 .wall{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);margin-top:28px;}
 .wc{background:rgba(255,255,255,.03);padding:20px 18px;border-bottom:2px solid transparent;transition:all .2s;}
 .wc:hover{background:rgba(46,109,163,.15);border-bottom-color:var(--bl);}
@@ -136,7 +125,6 @@ nav{background:var(--ink);position:sticky;top:0;z-index:400;border-bottom:1px so
 .wcc{font-size:11px;color:rgba(255,255,255,.4);margin-bottom:2px;}
 .wcv{font-size:11px;color:rgba(255,255,255,.6);}
 
-/* SCHOLAR */
 .scg{display:grid;grid-template-columns:1fr;gap:30px;}
 .sq{font-family:var(--serif);font-size:clamp(20px,4vw,30px);font-weight:300;font-style:italic;color:#fff;line-height:1.45;margin-bottom:16px;}
 .sa{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);}
@@ -148,7 +136,6 @@ nav{background:var(--ink);position:sticky;top:0;z-index:400;border-bottom:1px so
 .pill{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--bl);border:1px solid rgba(91,157,212,.3);padding:4px 10px;}
 .sb{font-size:13px;line-height:1.8;color:rgba(255,255,255,.5);}
 
-/* HOW IT WORKS */
 .flow{margin-top:20px;}
 .fs{display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--bdr);}
 .fs:last-child{border-bottom:none;}
@@ -156,7 +143,6 @@ nav{background:var(--ink);position:sticky;top:0;z-index:400;border-bottom:1px so
 .ft{font-family:var(--serif);font-size:17px;color:#0D0D0D;margin-bottom:4px;font-weight:400;}
 .fd{font-size:12px;line-height:1.7;color:#0A0A0A;}
 
-/* DONATE */
 .dw{display:grid;grid-template-columns:1fr;gap:20px;}
 .dbox{background:var(--ink2);border:1px solid rgba(255,255,255,.08);padding:30px 24px;}
 .dh{font-family:var(--serif);font-size:clamp(22px,4vw,34px);font-weight:300;color:#fff;margin-bottom:8px;}
@@ -186,7 +172,6 @@ nav{background:var(--ink);position:sticky;top:0;z-index:400;border-bottom:1px so
 .fil::placeholder{color:rgba(0,0,0,.28);}
 .fsl{background:var(--off);border:1px solid var(--bdr);color:var(--muted);font-family:var(--sans);font-size:13px;padding:11px 13px;width:100%;outline:none;cursor:pointer;border-radius:0;-webkit-appearance:none;margin-bottom:9px;}
 
-/* FAQ */
 .faq{border:1px solid var(--bdr);}
 .fi2{border-bottom:1px solid var(--bdr);}
 .fi2:last-child{border-bottom:none;}
@@ -200,12 +185,10 @@ nav{background:var(--ink);position:sticky;top:0;z-index:400;border-bottom:1px so
 .fi2.open .fc{transform:rotate(45deg);}
 .fi2.open .fq{background:var(--bdim);}
 
-/* QUOTE */
 .qt{text-align:center;padding:0 20px;}
 .qt blockquote{font-family:var(--serif);font-size:clamp(20px,4vw,34px);font-weight:300;font-style:italic;color:#fff;max-width:740px;margin:0 auto 14px;line-height:1.45;}
 .qt cite{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);font-style:normal;}
 
-/* FOOTER */
 footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:32px 24px;}
 .fw{max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
 .flo{font-size:15px;font-weight:600;color:#fff;}
@@ -214,7 +197,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 .fl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(91,157,212,.45);border-bottom:1px solid rgba(91,157,212,.2);padding-bottom:1px;}
 .fl:hover{color:var(--bl);}
 
-/* RAM */
 .rbox{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);padding:36px 28px;position:relative;overflow:hidden;}
 .rk{font-size:9px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--bl);margin-bottom:12px;}
 .rh{font-family:var(--serif);font-size:clamp(24px,4vw,40px);font-weight:300;color:#fff;line-height:1.1;margin-bottom:14px;}
@@ -227,7 +209,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 .band{background:var(--blue);padding:7px;text-align:center;margin-bottom:26px;}
 .band span{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#fff;}
 
-/* MECH TABLE */
 .mech{border:1px solid var(--bdr);}
 .mr{display:grid;grid-template-columns:auto 1fr;justify-content:space-between;align-items:baseline;padding:11px 16px;border-bottom:1px solid var(--bdr);font-size:13px;gap:16px;} .mr .k{min-width:110px;flex-shrink:0;font-size:12px;color:#555;} .mr .v{text-align:right;font-weight:400;}
 .mr:last-child{border-bottom:none;}
@@ -260,14 +241,11 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 @media(min-width:700px){#quotes-grid{grid-template-columns:1fr 1fr 1fr;}}
 @media(min-width:1000px){#quotes-grid{grid-template-columns:1fr 1fr 1fr 1fr;}}
 
-/* SHARE WIDGET */
 .copt{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;background:#fff;border:1px solid var(--bdr);color:var(--muted);cursor:pointer;transition:all .2s;font-family:var(--sans);}
 .copt:hover{border-color:var(--blue);color:var(--blue);}
 .copt.sel{background:var(--blue);color:#fff;border-color:var(--blue);}
 @media(min-width:600px){#share-widget{grid-template-columns:1fr 1fr;} #three-paths{grid-template-columns:1fr 1fr;} #calc-grid{grid-template-columns:1fr 1fr;} #mech-boxes{grid-template-columns:1fr 1fr;} #how-flow{grid-template-columns:1fr 1fr;gap:40px;}} @media(min-width:1000px){#three-paths{grid-template-columns:1fr 1fr;} #calc-grid{grid-template-columns:1fr 1fr 1fr;}}
 
-
-/* ===== MOBILE ===== */
 @media(max-width:767px){
   body{overflow-x:hidden;}
   .w,.nw,.fw{padding-left:18px !important;padding-right:18px !important;}
@@ -353,7 +331,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 table{width:100%;table-layout:fixed;}
 input,select,textarea{max-width:100%;box-sizing:border-box;}
 
-/* QUOTES */
 #quotes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #e2e8f0;border-bottom:none;}
 .qc{padding:24px 22px;border-right:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;display:flex;flex-direction:column;gap:0;background:#fff;transition:background .18s;}
 .qc:hover{background:#f8fafc;}
@@ -384,7 +361,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
 </head>
 <body>
 
-<!-- PASSWORD GATE -->
 <div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:#08090E;display:flex;align-items:center;justify-content:center;padding:24px;">
   <div style="width:100%;max-width:400px;">
     <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:36px;">
@@ -410,7 +386,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
 </div>
 <div id="pw-content" style="display:none;">
 
-<!-- TICKER -->
 <div class="ticker">
   <div class="tt">
     <div class="ti"><span class="dot"></span>Every pound you give<b>*</b></div>
@@ -426,7 +401,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <div class="nw">
     <div class="nb">
@@ -443,7 +417,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div style="position:absolute;top:-10%;left:-5%;width:min(500px,120vw);height:min(500px,120vw);background:radial-gradient(circle,rgba(46,109,163,.18),transparent 65%);pointer-events:none;"></div>
   <div class="w">
@@ -464,7 +437,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </div>
 
-<!-- FUND STRUCTURE -->
 <div class="sw">
   <div class="w">
     <div class="lbl">Alif Venture Capital Fund</div>
@@ -509,8 +481,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </div>
 
-
-<!-- WHAT IS A WAQF -->
 <div class="sw" id="how">
   <div class="w">
     <div class="lbl">What is a Waqf?</div>
@@ -533,7 +503,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </div>
 
-<!-- FOUNDING PARTNERS -->
 <div class="so">
   <div class="w">
     <div class="lbl">Anchor Partners</div>
@@ -554,13 +523,14 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </div>
 
-<!-- WALL -->
 <div class="sd">
   <div class="w">
     <div class="lbl lt">They Proved It's Possible</div>
     <h2 class="h2 wt">Muslim builders<br>who <em>changed</em><br>the world.</h2>
     <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.8;max-width:500px;margin-top:14px;">Their exits, their unicorns, their legacies. The Alif Waqf is the next chapter.</p>
     <div class="wall">
+      <div class="wc"><div class="wct">Decacorn at 26</div><div class="wcn">Sualeh Asif</div><div class="wcc">Cursor / Anysphere · Karachi → SF</div><div class="wcv">$29.3B valuation · $60B SpaceX talks reported 2026</div></div>
+      <div class="wc"><div class="wct">$1.7B Exit</div><div class="wcn">Rehan Jalil</div><div class="wcc">Securiti AI → Veeam, 2025</div><div class="wcv">Third major exit · Elastica &amp; Vorus prior</div></div>
       <div class="wc"><div class="wct">$3.1B Exit</div><div class="wcn">Mudassir Sheikha</div><div class="wcc">Careem → Uber, 2019</div><div class="wcv">Largest ME tech acquisition in history</div></div>
       <div class="wc"><div class="wct">$400M Exit</div><div class="wcn">Husayn Kassai</div><div class="wcc">Onfido → Entrust, 2024</div><div class="wcv">Oxford's historic 320x return</div></div>
       <div class="wc"><div class="wct">$3.4B Exit</div><div class="wcn">Mo Ibrahim</div><div class="wcc">Celtel → Zain, 2005</div><div class="wcv">Connectivity to 14 African nations</div></div>
@@ -573,8 +543,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </div>
 
-
-<!-- QUOTES -->
 <div class="so">
   <div class="w">
     <div class="lbl">On Discipline. Growth. Building.</div>
@@ -705,7 +673,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </div>
 
-<!-- SCHOLAR -->
 <div class="sd">
   <div class="w" style="border-top:1px solid rgba(255,255,255,.07);padding-top:0;">
     <div class="lbl lt">Founder, Alif Waqf</div>
@@ -728,8 +695,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </div>
 
-
-<!-- HOW IT WORKS -->
 <div class="sw" id="how-works">
   <div class="w">
     <div class="lbl">How It Works</div>
@@ -761,14 +726,13 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         <div style="border:1px solid var(--bln);background:var(--bdim);padding:18px 20px;">
           <div style="font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">Discuss LP Participation</div>
           <p style="font-size:13px;line-height:1.7;color:var(--muted);">The Waqf anchor commitment catalyses external LP capital — creating incentive alignment between private investors and the endowment. Both want the same thing: the best returns from the world's best deals.</p>
-          <a href="/cdn-cgi/l/email-protection#1a727f7676755a7b76737c6f747e347975" style="display:inline-block;margin-top:14px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border-bottom:1px solid var(--bln);padding-bottom:2px;">Discuss LP participation →</a>
+          <a href="mailto:hello@alifund.co" style="display:inline-block;margin-top:14px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border-bottom:1px solid var(--bln);padding-bottom:2px;">Discuss LP participation →</a>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- DONATE -->
 <div class="sd" id="paths">
   <div class="w">
     <div class="lbl lt">Two Ways to Participate</div>
@@ -866,7 +830,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </div>
 
-<!-- SOCIAL SHARE -->
 <div class="sw">
   <div class="w">
     <div class="lbl">Share Your Commitment</div>
@@ -917,7 +880,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </div>
 
-<!-- STUDIO -->
 <div class="sw">
   <div class="w">
     <div class="lbl">Alif Studio</div>
@@ -962,14 +924,13 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         <div style="border:1px solid var(--bln);background:var(--bdim);padding:16px 20px;">
           <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:6px;">For Founders</div>
           <p style="font-size:12px;line-height:1.75;color:var(--muted);">If you are building something for the Muslim world — or in markets the world has underestimated — the Alif Studio wants to hear from you.</p>
-          <a href="/cdn-cgi/l/email-protection#c1a9a4adadae81a0ada8a7b4afa5efa2ae" style="display:inline-block;margin-top:10px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border-bottom:1px solid var(--bln);padding-bottom:2px;">Apply to the Studio →</a>
+          <a href="mailto:hello@alifund.co" style="display:inline-block;margin-top:10px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border-bottom:1px solid var(--bln);padding-bottom:2px;">Apply to the Studio →</a>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- FAQ -->
 <div class="sw" id="faq">
   <div class="w">
     <div class="lbl">FAQ</div>
@@ -983,8 +944,8 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
 <strong>If you donate to the Waqf:</strong> No — and that is the point. A Waqf is a permanent, irrevocable endowment under Islamic law. Once you contribute, your principal can never be returned or dissolved.<br><br>
 <strong>If you invest as an LP in the fund:</strong> Yes — you receive your capital back plus returns on exit. <strong>65% of all carry is returned to you</strong>, 25% flows permanently to the Waqf, and 10% goes to the active team.<br><br>
 <em style="color:var(--muted);font-size:12px;">Past performance is not a guarantee of future returns. This is not financial advice.</em></div></div>
-      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>Is this Zakat-eligible?</strong><span class="fc">+</span></div><div class="fa">Zakat eligibility depends on the cause designation and is confirmed by Sheikh Dr. Faid Mohammed Said. Please contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d8b0bdb4b4b798b9b4b1beadb6bcf6bbb7">[email&#160;protected]</a> to discuss Zakat routing.</div></div>
-      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>What is the minimum contribution?</strong><span class="fc">+</span></div><div class="fa">There is no minimum for general donations. For institutional LP participation, please contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="264e434a4a4966474a4f40534842084549">[email&#160;protected]</a> directly to discuss terms. Individual Waqf donations are welcome from $1,000 upwards.</div></div>
+      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>Is this Zakat-eligible?</strong><span class="fc">+</span></div><div class="fa">Zakat eligibility depends on the cause designation and is confirmed by Sheikh Dr. Faid Mohammed Said. Please contact <a href="mailto:hello@alifund.co">hello@alifund.co</a> to discuss Zakat routing.</div></div>
+      <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>What is the minimum contribution?</strong><span class="fc">+</span></div><div class="fa">There is no minimum for general donations. For institutional LP participation, please contact <a href="mailto:hello@alifund.co">hello@alifund.co</a> directly to discuss terms. Individual Waqf donations are welcome from $1,000 upwards.</div></div>
       <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>Who governs the Waqf?</strong><span class="fc">+</span></div><div class="fa">The Alif Waqf is governed by an independent board of trustees under the Shariah supervision of <strong>Sheikh Dr. Faid Mohammed Said</strong> — Secretary-General of the Commission of Fatwa &amp; Sharia Affairs. Founding institutional partners are the Aman Foundation and Yaqeen Institute.</div></div>
       <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>How is this connected to Alif Venture Capital Fund?</strong><span class="fc">+</span></div><div class="fa">The Waqf is the <strong>anchor LP of the fund</strong> — committing $10M at inception, targeting 30% of total Waqf AUM over time. Returns flow back into the permanent endowment. The fund is <strong>Luxembourg-domiciled</strong> (SICAV/RAIF structure) operating under a <strong>Wakala + Ju'alah framework</strong>.</div></div>
       <div class="fi2"><div class="fq" onclick="togFAQ(this)"><strong>What causes does the Waqf support?</strong><span class="fc">+</span></div><div class="fa">Current designated causes: <strong>Islamic education and scholarship</strong> (through Yaqeen Institute), <strong>Muslim community health infrastructure</strong> (through Aman Foundation), and <strong>Muslim entrepreneur and youth development</strong>.</div></div>
@@ -992,7 +953,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </div>
 
-<!-- QUOTE -->
 <div class="sb">
   <div class="qt">
     <blockquote>"When you endow a Waqf, you are not giving away your wealth. You are planting it — in soil that will bear fruit long after the seasons of your own life have passed."</blockquote>
@@ -1000,7 +960,6 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
   </div>
 </div>
 
-<!-- CONTACT -->
 <div class="sw">
   <div class="w">
     <div class="two">
@@ -1009,8 +968,8 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
         <h2 class="h2">Ready to plant<br><em>your seed?</em></h2>
         <p class="bp" style="margin-top:14px;">Donate, become a charity partner, explore Ramadan anchor status, or simply learn more.</p>
         <div style="display:flex;flex-direction:column;gap:10px;margin-top:22px;">
-          <div style="display:flex;gap:10px;align-items:center;font-size:13px;"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;">Waqf</span><a href="/cdn-cgi/l/email-protection#d0b8b5bcbcbf90b1bcb9b6a5beb4feb3bf" style="color:var(--body);"><span class="__cf_email__" data-cfemail="99f1fcf5f5f6d9f8f5f0ffecf7fdb7faf6">[email&#160;protected]</span></a></div>
-          <div style="display:flex;gap:10px;align-items:center;font-size:13px;"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;">Fund</span><a href="/cdn-cgi/l/email-protection#b8d0ddd4d4d7f8d9d4d1decdd6dc96dbd7" style="color:var(--body);"><span class="__cf_email__" data-cfemail="18707d747477587974717e6d767c367b77">[email&#160;protected]</span></a></div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:13px;"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;">Waqf</span><a href="mailto:hello@alifund.co" style="color:var(--body);">hello@alifund.co</a></div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:13px;"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;">Fund</span><a href="mailto:fund@alifund.co" style="color:var(--body);">fund@alifund.co</a></div>
           <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);"><span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;min-width:80px;padding-top:2px;">Shariah</span><span>Sheikh Dr. Faid Mohammed Said · London Central Mosque</span></div>
         </div>
       </div>
@@ -1041,7 +1000,7 @@ input,select,textarea{max-width:100%;box-sizing:border-box;}
 
 </div><!-- /#pw-content -->
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const PW_HASH = 'fe03798c30af1b7640da8bb3e0718ab9f89c38e3fe6f2ea3585a45b63d6192a8';
 const SESSION_KEY = 'alif_waqf_auth';
 
@@ -1073,7 +1032,6 @@ function togglePwVis() {
   inp.type = inp.type === 'password' ? 'text' : 'password';
 }
 
-// Always show gate on load — no session bypass
 sessionStorage.removeItem(SESSION_KEY);
 </script>
 
@@ -1141,15 +1099,7 @@ function submitWaqfForm(){
   var purpose = document.getElementById('waqf-purpose').value || 'Not selected';
   var subject = encodeURIComponent('Alif Waqf — Donation Enquiry: ' + name);
   var body = encodeURIComponent(
-    'ALIF WAQF — DONATION ENQUIRY\n' +
-    '==============================\n\n' +
-    'Name: ' + name + '\n' +
-    'Email: ' + email + '\n' +
-    'Organisation: ' + org + '\n' +
-    'Amount: ' + amt + '\n' +
-    'Destination: ' + dest + '\n' +
-    'Purpose: ' + purpose + '\n\n' +
-    'Please send wire transfer instructions.\n\nجزاك الله خيرًا'
+    'ALIF WAQF — DONATION ENQUIRY\n==============================\n\nName: ' + name + '\nEmail: ' + email + '\nOrganisation: ' + org + '\nAmount: ' + amt + '\nDestination: ' + dest + '\nPurpose: ' + purpose + '\n\nPlease send wire transfer instructions.\n\nجزاك الله خيرًا'
   );
   window.location.href = 'mailto:hello@alifund.co?subject=' + subject + '&body=' + body;
 }
@@ -1164,20 +1114,23 @@ function submitInvestForm(){
   var interest = document.getElementById('inv-interest').value || 'Not selected';
   var subject = encodeURIComponent('Alif VC Fund — LP Interest: ' + name);
   var body = encodeURIComponent(
-    'ALIF VENTURE CAPITAL FUND — LP INTEREST\n' +
-    '==========================================\n\n' +
-    'Name: ' + name + '\n' +
-    'Email: ' + email + '\n' +
-    'Organisation: ' + org + '\n' +
-    'Indicative Commitment: ' + size + '\n' +
-    'Investment Path: ' + path + '\n' +
-    'Investor Type: ' + type + '\n' +
-    'Primary Interest: ' + interest + '\n\n' +
-    'Please send the investor memorandum and term sheet.\n\nجزاك الله خيرًا'
+    'ALIF VENTURE CAPITAL FUND — LP INTEREST\n==========================================\n\nName: ' + name + '\nEmail: ' + email + '\nOrganisation: ' + org + '\nIndicative Commitment: ' + size + '\nInvestment Path: ' + path + '\nInvestor Type: ' + type + '\nPrimary Interest: ' + interest + '\n\nPlease send the investor memorandum and term sheet.\n\nجزاك الله خيرًا'
   );
   window.location.href = 'mailto:hello@alifund.co?subject=' + subject + '&body=' + body;
 }
 
 function submitContactForm(){
   var name = document.getElementById('ct-name').value || 'Not provided';
-  var email
+  var email = document.getElementById('ct-email').value || 'Not provided';
+  var topic = document.getElementById('ct-topic').value || 'Not selected';
+  var msg = document.getElementById('ct-msg').value || '';
+  var subject = encodeURIComponent('Alif Waqf — General Enquiry: ' + name);
+  var body = encodeURIComponent(
+    'ALIF WAQF — GENERAL ENQUIRY\n==============================\n\nName: ' + name + '\nEmail: ' + email + '\nTopic: ' + topic + '\nMessage: ' + msg + '\n\nجزاك الله خيرًا'
+  );
+  window.location.href = 'mailto:hello@alifund.co?subject=' + subject + '&body=' + body;
+}
+</script>
+
+</body>
+</html>
